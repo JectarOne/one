@@ -1512,9 +1512,10 @@ textarea.form__field {
 ════════════════════════════════════════════════ */
 .industry__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
+  width: 100%;
 }
 
 .ind-card {
@@ -1522,6 +1523,8 @@ textarea.form__field {
   border-radius: 1.25rem;
   text-align: center;
   transition: transform 0.4s var(--ease-out-expo), border-color 0.3s;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .ind-card:hover {
@@ -1545,8 +1548,10 @@ textarea.form__field {
 
 .ind-card__desc {
   font-size: 0.85rem;
-  color: var(--muted);
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.6;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* FAQ accordion styling */
@@ -1559,6 +1564,8 @@ textarea.form__field {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   padding: 0.5rem 0;
   transition: border-color 0.3s;
+  width: 100%;
+  overflow: hidden;
 }
 
 .faq-item:last-child {
@@ -1570,19 +1577,33 @@ textarea.form__field {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   background: transparent;
   border: none;
   padding: 1.25rem 0.5rem;
   color: #fff;
   font-family: var(--font-head);
-  font-size: 1.15rem;
-  font-weight: 500;
-  text-align: left;
   cursor: pointer;
   outline: none;
 }
 
+.faq-trigger h3 {
+  flex: 1;
+  min-width: 0;
+  font-size: 1.15rem;
+  font-weight: 500;
+  text-align: left;
+  margin: 0;
+  color: #fff;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 .faq-trigger:hover {
+  color: var(--blue);
+}
+
+.faq-trigger:hover h3 {
   color: var(--blue);
 }
 
@@ -1601,14 +1622,16 @@ textarea.form__field {
 }
 
 .faq-content p {
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 0.95rem;
   line-height: 1.7;
   padding-bottom: 1.25rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* Open states */
-.faq-item.open .faq-trigger {
+.faq-item.open .faq-trigger h3 {
   color: var(--blue);
 }
 
@@ -1623,17 +1646,33 @@ textarea.form__field {
 }
 
 /* RTL overrides for FAQ triggers in Arabic */
-[dir="rtl"] .faq-trigger {
+[dir="rtl"] .faq-trigger h3 {
   text-align: right;
 }
 [dir="rtl"] .ind-card {
   text-align: center;
 }
 
-@media (max-width: 1024px) {
-  .industry__grid { grid-template-columns: repeat(2, 1fr); }
-}
+@media (max-width: 768px) {
+  .faq-trigger {
+    align-items: flex-start;
+  }
 
-@media (max-width: 640px) {
-  .industry__grid { grid-template-columns: 1fr; }
+  .faq-icon {
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  h1 {
+    font-size: 42px !important;
+    line-height: 1.1 !important;
+  }
+
+  h2 {
+    font-size: 32px !important;
+  }
+
+  p {
+    font-size: 16px !important;
+  }
 }
