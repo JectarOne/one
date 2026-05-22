@@ -26,13 +26,14 @@
   <meta property="og:type"        content="website" />
   <meta name="twitter:card"       content="summary_large_image" />
 
-  <!-- Fonts -->
+  <!-- Fonts (non-render-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-   
-  <!-- Tailwind (utilities) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" /></noscript>
+
+  <!-- LCP image preload -->
+  <link rel="preload" as="image" href="freesoft-2x.jpg" />
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
@@ -259,10 +260,13 @@
           <div class="hero__photo-border"></div>
           <div class="hero__photo-frame">
             <img
-              src="freesoft.png"
+              src="freesoft.jpg"
+              srcset="freesoft.jpg 400w, freesoft-2x.jpg 800w"
+              sizes="(max-width: 768px) 0px, 400px"
               alt="Jectar — AI Builder and Digital Creator from Morocco"
               width="400"
-              height="640"
+              height="400"
+              fetchpriority="high"
               style="object-fit:cover;object-position:center 15%;width:100%;height:100%;"
             />
           </div>
@@ -363,6 +367,8 @@
             src="dd.jpg"
             alt="Jectar — The Journey"
             width="480"
+            height="480"
+            loading="lazy"
             style="object-fit:cover;object-position:center center;width:100%;"
           />
         </div>

@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
         initScrollAnimations();
       },
     });
-  }, 2000);
+  }, 800);
 });
 
 /* ── NAVBAR SCROLL STATE ─────────────────────────
