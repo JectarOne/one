@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/xqkgqqvvzf/jectar.one
+    - /bin/rsync -av --exclude='.git*' --exclude='*.md' ./ $DEPLOYPATH
