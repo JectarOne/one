@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+
+  <title>Blog — AI Automation, Web Design & Local SEO for Morocco | Jectar</title>
+  <meta name="description" content="Practical guides on AI automation, WhatsApp systems, local SEO, and digital transformation for Moroccan businesses. Written by practitioners, not theorists." />
+  <meta name="author" content="Jectar One" />
+  <link rel="canonical" href="https://jectar.one/blog/" />
+
+  <link rel="alternate" hreflang="en" href="https://jectar.one/blog/" />
+  <link rel="alternate" hreflang="x-default" href="https://jectar.one/blog/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Blog — AI, Web Design & SEO for Moroccan Businesses | Jectar" />
+  <meta property="og:description" content="Practical guides on AI automation, WhatsApp systems, and digital transformation for Moroccan businesses." />
+  <meta property="og:url"         content="https://jectar.one/blog/" />
+  <meta property="og:type"        content="website" />
+  <meta name="twitter:card"       content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/blog.css" />
+
+  <!-- Blog JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Jectar One Blog",
+    "url": "https://jectar.one/blog/",
+    "description": "Practical guides on AI automation, web design, and local SEO for Moroccan businesses.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Jectar One",
+      "url": "https://jectar.one",
+      "logo": { "@type": "ImageObject", "url": "https://jectar.one/favicon-32x32.png" }
+    }
+  }
+  </script>
+</head>
+<body>
+
+<canvas id="particles-canvas"></canvas>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <div class="nav__logo-mark" aria-hidden="true">J</div>
+        <span class="nav__logo-text">Jectar <span class="nav__logo-sub">One</span></span>
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="../index.html#about"     class="nav__link">About</a></li>
+        <li><a href="../index.html#services"  class="nav__link">Services</a></li>
+        <li><a href="../blog/"                class="nav__link" style="color:var(--blue);">Blog</a></li>
+        <li><a href="../index.html#contact"   class="nav__link">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <div class="lang-switcher" style="display:flex;gap:0.35rem;margin-right:0.75rem;">
+          <a href="../index.html" style="font-size:0.7rem;padding:0.25rem 0.5rem;border-radius:6px;color:#fff;background:rgba(124,58,237,0.3);border:1px solid rgba(124,58,237,0.5);text-decoration:none;">EN</a>
+          <a href="../fr/" style="font-size:0.7rem;padding:0.25rem 0.5rem;border-radius:6px;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);text-decoration:none;">FR</a>
+          <a href="../ar/" style="font-size:0.7rem;padding:0.25rem 0.5rem;border-radius:6px;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);text-decoration:none;">AR</a>
+        </div>
+        <a href="../index.html#contact" class="btn btn--primary btn--sm">Build My System</a>
+        <button class="nav__ham" onclick="toggleMenu()" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="nav__ham-line"></span>
+          <span class="nav__ham-line"></span>
+          <span class="nav__ham-line"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="nav__mobile" role="dialog" aria-modal="true">
+    <a href="../index.html#about"    class="nav__mobile-link" onclick="toggleMenu()">About</a>
+    <a href="../index.html#services" class="nav__mobile-link" onclick="toggleMenu()">Services</a>
+    <a href="../blog/"               class="nav__mobile-link" onclick="toggleMenu()">Blog</a>
+    <a href="../index.html#contact"  class="nav__mobile-link" onclick="toggleMenu()">Contact</a>
+    <a href="../index.html#contact" class="btn btn--primary" onclick="toggleMenu()" style="margin-top:1.25rem;">Build My System</a>
+  </div>
+</header>
+
+<!-- BLOG CATEGORY NAV -->
+<div class="blog-nav">
+  <div class="container">
+    <div class="blog-nav__inner">
+      <a href="#all"         class="cat-pill active">All</a>
+      <a href="#ai"          class="cat-pill cat-pill--blue">🧠 AI Automation</a>
+      <a href="#systems"     class="cat-pill">⚙️ Business Systems</a>
+      <a href="#web"         class="cat-pill">🌐 Web Design</a>
+      <a href="#seo"         class="cat-pill cat-pill--green">📍 Local SEO</a>
+      <a href="#whatsapp"    class="cat-pill">💬 WhatsApp</a>
+      <a href="#industry"    class="cat-pill cat-pill--amber">🏢 Industry Guides</a>
+      <a href="#morocco"     class="cat-pill">🇲🇦 Morocco Digital</a>
+      <a href="#tutorials"   class="cat-pill">🛠️ Tutorials</a>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="blog-hero">
+      <div class="orb" style="width:500px;height:500px;background:radial-gradient(circle,rgba(124,58,237,0.1) 0%,transparent 70%);top:-100px;right:-150px;pointer-events:none;"></div>
+      <p class="section-label" style="margin-bottom:1rem;">Jectar Blog</p>
+      <h1 class="blog-hero__title">
+        Insights that<br><span class="g-text">actually build businesses.</span>
+      </h1>
+      <p class="blog-hero__sub">
+        No SEO fluff. No generic advice. Practical guides on AI automation, WhatsApp systems, web design, and local SEO — written for Moroccan business owners who want results.
+      </p>
+
+      <!-- Stats row -->
+      <div style="display:flex;gap:2rem;margin-top:2rem;flex-wrap:wrap;">
+        <div>
+          <p style="font-family:var(--font-head);font-size:1.5rem;font-weight:800;color:#fff;">30+</p>
+          <p style="font-size:0.75rem;color:var(--muted);">Articles planned</p>
+        </div>
+        <div>
+          <p style="font-family:var(--font-head);font-size:1.5rem;font-weight:800;color:var(--blue);">8</p>
+          <p style="font-size:0.75rem;color:var(--muted);">Categories</p>
+        </div>
+        <div>
+          <p style="font-family:var(--font-head);font-size:1.5rem;font-weight:800;color:var(--emerald);">Free</p>
+          <p style="font-size:0.75rem;color:var(--muted);">All content</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURED ARTICLES (Week 1 — live) -->
+    <div style="margin-bottom:1.5rem;">
+      <p class="section-label">Latest</p>
+      <h2 style="font-family:var(--font-head);font-size:1.5rem;font-weight:700;color:#fff;margin-top:0.5rem;margin-bottom:1.5rem;">Start here — Week 1 pillars</h2>
+    </div>
+
+    <div class="article-grid article-grid--featured" style="margin-bottom:4rem;">
+
+      <!-- Article 1 — Featured -->
+      <a href="ai-automation/ai-automation-morocco-guide/" class="art-card art-card--featured" style="text-decoration:none;">
+        <div class="art-card__thumb" style="background:linear-gradient(135deg,#08081e,#0a1f15);">
+          <span style="font-size:4rem;">🧠</span>
+          <div class="art-card__thumb-label">AI Automation · Pillar</div>
+        </div>
+        <div class="art-card__body">
+          <div class="art-card__meta">
+            <span>May 2026</span>
+            <span class="art-card__meta-dot"></span>
+            <span>14 min read</span>
+            <span class="art-card__meta-dot"></span>
+            <span style="color:var(--blue);">3,200+ words</span>
+          </div>
+          <h2 class="art-card__title" style="font-size:1.3rem;">The Complete Guide to AI Automation for Moroccan Businesses (2026)</h2>
+          <p class="art-card__excerpt">How Moroccan gyms, clinics, and real estate firms are cutting admin costs by 40% and responding to leads 10x faster — with real tools, real numbers, and no hype.</p>
+          <div class="art-card__footer">
+            <div class="art-card__read">Read the guide <span>→</span></div>
+            <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+              <span class="chip" style="background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:#c4b5fd;font-size:0.65rem;padding:0.2rem 0.5rem;">n8n</span>
+              <span class="chip" style="background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2);color:var(--blue);font-size:0.65rem;padding:0.2rem 0.5rem;">WhatsApp</span>
+              <span class="chip" style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);color:var(--emerald);font-size:0.65rem;padding:0.2rem 0.5rem;">Morocco</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Article 10 -->
+      <a href="morocco-digital/digital-transformation-moroccan-sme/" class="art-card" style="text-decoration:none;">
+        <div class="art-card__thumb" style="background:linear-gradient(135deg,#12080a,#0a0a20);">
+          <span style="font-size:3rem;">🇲🇦</span>
+          <div class="art-card__thumb-label">Morocco Digital</div>
+        </div>
+        <div class="art-card__body">
+          <div class="art-card__meta">
+            <span>May 2026</span>
+            <span class="art-card__meta-dot"></span>
+            <span>9 min read</span>
+          </div>
+          <h3 class="art-card__title">Digital Transformation for Moroccan SMEs: A Practical Roadmap</h3>
+          <p class="art-card__excerpt">Stage-by-stage roadmap from zero digital presence to AI-first operations, with realistic MAD budgets at each level.</p>
+          <div class="art-card__footer">
+            <div class="art-card__read">Read the roadmap <span>→</span></div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- COMING SOON — Week 1 remaining articles -->
+    <div style="margin-bottom:1.5rem;">
+      <p class="section-label">Coming This Month</p>
+      <h2 style="font-family:var(--font-head);font-size:1.35rem;font-weight:700;color:#fff;margin-top:0.5rem;margin-bottom:1.5rem;">Month 1 publishing plan</h2>
+    </div>
+
+    <div class="article-grid" style="margin-bottom:5rem;">
+
+      <!-- Article 2 — LIVE -->
+      <a href="local-seo/google-maps-seo-morocco/" class="art-card" style="text-decoration:none;">
+        <div class="art-card__thumb" style="background:linear-gradient(135deg,#0a1a0e,#08081e);">
+          <span style="font-size:3rem;">📍</span>
+          <div class="art-card__thumb-label">Local SEO · Pillar</div>
+        </div>
+        <div class="art-card__body">
+          <div class="art-card__meta">
+            <span>May 2026</span>
+            <span class="art-card__meta-dot"></span>
+            <span>11 min read</span>
+            <span class="art-card__meta-dot"></span>
+            <span style="color:var(--blue);">2,800+ words</span>
+          </div>
+          <h3 class="art-card__title">How to Rank #1 on Google Maps in Morocco: Local SEO Guide</h3>
+          <p class="art-card__excerpt">GBP optimization, citation building, review velocity, and Morocco-specific tactics that put your business in the top 3 within 60 days.</p>
+          <div class="art-card__footer">
+            <div class="art-card__read">Read the guide <span>→</span></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Article 5 placeholder -->
+      <div class="art-card" style="opacity:0.6;">
+        <div class="art-card__thumb" style="background:linear-gradient(135deg,#0a1f15,#080808);">
+          <span style="font-size:3rem;">💬</span>
+          <div class="art-card__thumb-label">WhatsApp · Pillar</div>
+        </div>
+        <div class="art-card__body">
+          <div class="art-card__meta">
+            <span>Coming Week 3</span>
+            <span class="art-card__meta-dot"></span>
+            <span>WhatsApp</span>
+          </div>
+          <h3 class="art-card__title">WhatsApp Business Automation: Complete Setup Guide for MENA</h3>
+          <p class="art-card__excerpt">Lead qualification, appointment booking, and 24/7 customer support — all on WhatsApp, all automated.</p>
+          <div class="art-card__footer">
+            <div style="font-size:0.75rem;color:var(--muted);padding:0.35rem 0.75rem;border:1px solid var(--border);border-radius:999px;">Coming soon</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 3 placeholder -->
+      <div class="art-card" style="opacity:0.6;">
+        <div class="art-card__thumb" style="background:linear-gradient(135deg,#0d0820,#080f08);">
+          <span style="font-size:3rem;">🔄</span>
+          <div class="art-card__thumb-label">Tutorial</div>
+        </div>
+        <div class="art-card__body">
+          <div class="art-card__meta">
+            <span>Coming Week 3</span>
+            <span class="art-card__meta-dot"></span>
+            <span>n8n</span>
+          </div>
+          <h3 class="art-card__title">n8n Automation: 10 Workflows Every Moroccan Business Needs</h3>
+          <p class="art-card__excerpt">Copy-paste n8n workflows for lead routing, WhatsApp notifications, CRM sync, and invoice generation.</p>
+          <div class="art-card__footer">
+            <div style="font-size:0.75rem;color:var(--muted);padding:0.35rem 0.75rem;border:1px solid var(--border);border-radius:999px;">Coming soon</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 4 placeholder -->
+      <div class="art-card" style="opacity:0.6;">
+        <div class="art-card__thumb" style="background:linear-gradient(135deg,#0a0820,#05100a);">
+          <span style="font-size:3rem;">🤖</span>
+          <div class="art-card__thumb-label">AI Automation</div>
+        </div>
+        <div class="art-card__body">
+          <div class="art-card__meta">
+            <span>Coming Week 4</span>
+            <span class="art-card__meta-dot"></span>
+            <span>AI Agents</span>
+          </div>
+          <h3 class="art-card__title">AI Agents Explained: How They're Replacing Manual Business Tasks</h3>
+          <p class="art-card__excerpt">What AI agents actually are, how they work, and the exact tasks they're replacing at Moroccan businesses right now.</p>
+          <div class="art-card__footer">
+            <div style="font-size:0.75rem;color:var(--muted);padding:0.35rem 0.75rem;border:1px solid var(--border);border-radius:999px;">Coming soon</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 6 placeholder -->
+      <div class="art-card" style="opacity:0.6;">
+        <div class="art-card__thumb" style="background:linear-gradient(135deg,#0a1505,#08081e);">
+          <span style="font-size:3rem;">🍽️</span>
+          <div class="art-card__thumb-label">Industry Guide</div>
+        </div>
+        <div class="art-card__body">
+          <div class="art-card__meta">
+            <span>Coming Week 4</span>
+            <span class="art-card__meta-dot"></span>
+            <span>Restaurants</span>
+          </div>
+          <h3 class="art-card__title">How to Build a Digital Restaurant System in Morocco</h3>
+          <p class="art-card__excerpt">Website, QR menu, WhatsApp booking, and local SEO — the complete digital stack for Moroccan restaurant owners.</p>
+          <div class="art-card__footer">
+            <div style="font-size:0.75rem;color:var(--muted);padding:0.35rem 0.75rem;border:1px solid var(--border);border-radius:999px;">Coming soon</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 8 — LIVE -->
+      <a href="local-seo/restaurant-seo-guide/" class="art-card" style="text-decoration:none;">
+        <div class="art-card__thumb" style="background:linear-gradient(135deg,#0a0a0a,#0a1f0f);">
+          <span style="font-size:3rem;">📈</span>
+          <div class="art-card__thumb-label">Local SEO</div>
+        </div>
+        <div class="art-card__body">
+          <div class="art-card__meta">
+            <span>May 2026</span>
+            <span class="art-card__meta-dot"></span>
+            <span>10 min read</span>
+          </div>
+          <h3 class="art-card__title">Restaurant SEO: How to Get More Reservations from Google</h3>
+          <p class="art-card__excerpt">Google Maps optimization, menu schema, WhatsApp booking automation, TripAdvisor strategy — the complete playbook for Moroccan restaurants.</p>
+          <div class="art-card__footer">
+            <div class="art-card__read">Read the guide <span>→</span></div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- NEWSLETTER / EMAIL CAPTURE -->
+    <div class="glass" style="padding:2.5rem;border-radius:1.5rem;max-width:640px;margin:0 auto 5rem;text-align:center;border:1px solid rgba(124,58,237,0.2);">
+      <p style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--purple);margin-bottom:0.75rem;">Get Notified</p>
+      <h3 style="font-family:var(--font-head);font-size:1.35rem;font-weight:700;margin-bottom:0.65rem;line-height:1.3;">New articles every week.</h3>
+      <p style="color:rgba(255,255,255,0.45);font-size:0.88rem;margin-bottom:1.5rem;line-height:1.7;">Practical guides on AI, automation, and web strategy for Moroccan businesses. No spam. Unsubscribe any time.</p>
+      <div style="display:flex;gap:0.65rem;max-width:380px;margin:0 auto;flex-wrap:wrap;">
+        <input type="email" placeholder="your@email.com" class="form__field" style="flex:1;min-width:200px;margin-bottom:0;" />
+        <button class="btn btn--primary" style="flex-shrink:0;">Notify Me →</button>
+      </div>
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.2);margin-top:0.75rem;">Or just message on <a href="https://wa.me/212752138075" style="color:var(--emerald);">WhatsApp</a></p>
+    </div>
+
+    <!-- CATEGORIES OVERVIEW -->
+    <div style="margin-bottom:2rem;">
+      <p class="section-label">Browse by Topic</p>
+      <h2 style="font-family:var(--font-head);font-size:1.35rem;font-weight:700;color:#fff;margin-top:0.5rem;margin-bottom:2rem;">8 content categories</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:5rem;">
+
+      <div class="glass" style="padding:1.25rem;border-radius:0.85rem;text-align:center;">
+        <div style="font-size:1.75rem;margin-bottom:0.5rem;">🧠</div>
+        <p style="font-weight:700;font-size:0.88rem;color:#fff;margin-bottom:0.25rem;">AI Automation</p>
+        <p style="font-size:0.72rem;color:var(--muted);">n8n, OpenAI, agents</p>
+      </div>
+
+      <div class="glass" style="padding:1.25rem;border-radius:0.85rem;text-align:center;">
+        <div style="font-size:1.75rem;margin-bottom:0.5rem;">⚙️</div>
+        <p style="font-weight:700;font-size:0.88rem;color:#fff;margin-bottom:0.25rem;">Business Systems</p>
+        <p style="font-size:0.72rem;color:var(--muted);">CRM, tools, workflows</p>
+      </div>
+
+      <div class="glass" style="padding:1.25rem;border-radius:0.85rem;text-align:center;">
+        <div style="font-size:1.75rem;margin-bottom:0.5rem;">🌐</div>
+        <p style="font-weight:700;font-size:0.88rem;color:#fff;margin-bottom:0.25rem;">Web Design</p>
+        <p style="font-size:0.72rem;color:var(--muted);">Sites, landing pages</p>
+      </div>
+
+      <div class="glass" style="padding:1.25rem;border-radius:0.85rem;text-align:center;">
+        <div style="font-size:1.75rem;margin-bottom:0.5rem;">📍</div>
+        <p style="font-weight:700;font-size:0.88rem;color:#fff;margin-bottom:0.25rem;">Local SEO</p>
+        <p style="font-size:0.72rem;color:var(--muted);">Google Maps, GMB</p>
+      </div>
+
+      <div class="glass" style="padding:1.25rem;border-radius:0.85rem;text-align:center;">
+        <div style="font-size:1.75rem;margin-bottom:0.5rem;">💬</div>
+        <p style="font-weight:700;font-size:0.88rem;color:#fff;margin-bottom:0.25rem;">WhatsApp & Bots</p>
+        <p style="font-size:0.72rem;color:var(--muted);">Automation, chatbots</p>
+      </div>
+
+      <div class="glass" style="padding:1.25rem;border-radius:0.85rem;text-align:center;">
+        <div style="font-size:1.75rem;margin-bottom:0.5rem;">🏢</div>
+        <p style="font-weight:700;font-size:0.88rem;color:#fff;margin-bottom:0.25rem;">Industry Guides</p>
+        <p style="font-size:0.72rem;color:var(--muted);">Restaurants, clinics, gyms</p>
+      </div>
+
+      <div class="glass" style="padding:1.25rem;border-radius:0.85rem;text-align:center;">
+        <div style="font-size:1.75rem;margin-bottom:0.5rem;">🇲🇦</div>
+        <p style="font-weight:700;font-size:0.88rem;color:#fff;margin-bottom:0.25rem;">Morocco Digital</p>
+        <p style="font-size:0.72rem;color:var(--muted);">Market insights</p>
+      </div>
+
+      <div class="glass" style="padding:1.25rem;border-radius:0.85rem;text-align:center;">
+        <div style="font-size:1.75rem;margin-bottom:0.5rem;">🛠️</div>
+        <p style="font-weight:700;font-size:0.88rem;color:#fff;margin-bottom:0.25rem;">Tutorials</p>
+        <p style="font-size:0.72rem;color:var(--muted);">Step-by-step guides</p>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <a href="../index.html" class="footer__logo">
+        <div class="footer__logo-mark">J</div>
+        <div>
+          <p class="footer__logo-name">Jectar One</p>
+          <p class="footer__logo-domain">Premium digital systems for Moroccan businesses.</p>
+        </div>
+      </a>
+      <ul class="footer__links" role="list">
+        <li><a href="../index.html#about"    class="footer__link">About</a></li>
+        <li><a href="../index.html#services" class="footer__link">Services</a></li>
+        <li><a href="../blog/"               class="footer__link">Blog</a></li>
+        <li><a href="../index.html#contact"  class="footer__link">Contact</a></li>
+      </ul>
+      <div class="footer__right">
+        <a href="https://x.com/jectarone" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="Twitter">𝕏</a>
+        <a href="https://www.instagram.com/jectarone" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="Instagram">📸</a>
+        <a href="https://www.tiktok.com/@jectarone" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="TikTok">📱</a>
+        <span>© 2026 jectar.one</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE DOCK -->
+<nav class="dock" aria-label="Mobile dock navigation">
+  <a href="../index.html"          class="dock__item"><span class="dock__icon">🏠</span><span>Home</span></a>
+  <a href="../index.html#services" class="dock__item"><span class="dock__icon">⚡</span><span>Services</span></a>
+  <a href="../blog/"               class="dock__item" style="color:var(--blue);"><span class="dock__icon">📝</span><span>Blog</span></a>
+  <a href="../index.html#contact"  class="dock__item"><span class="dock__icon">✉️</span><span>Contact</span></a>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+<script src="../js/particles.js" defer></script>
+<script src="../js/main.js" defer></script>
+
+</body>
+</html>

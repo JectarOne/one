@@ -63,4 +63,20 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Article 2 — Local SEO Morocco / Google Maps (Pillar) -->
+  <url>
+    <loc>https://jectar.one/blog/local-seo/google-maps-seo-morocco/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Article 8 — Restaurant SEO Morocco -->
+  <url>
+    <loc>https://jectar.one/blog/local-seo/restaurant-seo-guide/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
