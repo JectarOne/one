@@ -37,6 +37,48 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="../css/style.css" />
 
+  <!-- Organization JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Jectar One",
+        "url": "https://jectar.one",
+        "logo": { "@type": "ImageObject", "url": "https://jectar.one/favicon-32x32.png" },
+        "founder": { "@type": "Person", "name": "Jectar" },
+        "description": "Sites premium, automatisation IA et systèmes de conversion pour les marques marocaines ambitieuses — salles de sport, cliniques, agences immobilières, locations de luxe.",
+        "areaServed": ["Morocco", "MENA"],
+        "address": { "@type": "PostalAddress", "addressCountry": "MA" },
+        "email": "info@jectar.one",
+        "telephone": "+212752138075",
+        "sameAs": [
+          "https://www.instagram.com/jectarone",
+          "https://x.com/jectarone",
+          "https://www.tiktok.com/@jectarone"
+        ]
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Jectar One",
+        "url": "https://jectar.one",
+        "email": "info@jectar.one",
+        "telephone": "+212752138075",
+        "priceRange": "$$",
+        "address": { "@type": "PostalAddress", "addressCountry": "MA" },
+        "description": "Sites premium, automatisation IA et systèmes de vente pour les marques marocaines ambitieuses.",
+        "sameAs": [
+          "https://www.instagram.com/jectarone",
+          "https://x.com/jectarone",
+          "https://www.tiktok.com/@jectarone"
+        ]
+      },
+      { "@type": "WebSite", "name": "Jectar One", "url": "https://jectar.one" }
+    ]
+  }
+  </script>
+
   <!-- FAQ JSON-LD Schema -->
   <script type="application/ld+json">
   {
@@ -747,10 +789,10 @@
         <div class="info-card glass">
           <p class="info-card__label">Réseaux Sociaux</p>
           <div class="social-links">
-            <a href="#" class="social-link">𝕏 Twitter</a>
-            <a href="#" class="social-link">in LinkedIn</a>
-            <a href="#" class="social-link">📸 Instagram</a>
-            <a href="#" class="social-link">📱 TikTok</a>
+            <a href="https://x.com/jectarone" target="_blank" rel="noopener noreferrer" class="social-link">𝕏 Twitter</a>
+            <a href="#" class="social-link" style="opacity:0.35;pointer-events:none;">in LinkedIn</a>
+            <a href="https://www.instagram.com/jectarone" target="_blank" rel="noopener noreferrer" class="social-link">📸 Instagram</a>
+            <a href="https://www.tiktok.com/@jectarone" target="_blank" rel="noopener noreferrer" class="social-link">📱 TikTok</a>
           </div>
         </div>
 
@@ -815,9 +857,9 @@
       
       <div class="flex flex-col sm:flex-row justify-between items-center w-full pt-4 gap-4 text-xs text-white/30">
         <div class="flex gap-4">
-          <a href="#" class="footer__social" aria-label="Twitter">𝕏</a>
-          <a href="#" class="footer__social" aria-label="LinkedIn">in</a>
-          <a href="#" class="footer__social" aria-label="Instagram">📸</a>
+          <a href="https://x.com/jectarone" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="Twitter">𝕏</a>
+          <a href="https://www.instagram.com/jectarone" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="Instagram">📸</a>
+          <a href="https://www.tiktok.com/@jectarone" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="TikTok">📱</a>
         </div>
         <span>© 2026 jectar.one · Conçu au Maroc</span>
       </div>
