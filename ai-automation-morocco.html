@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" href="favicon-32x32.png">
+
+  <!-- SEO -->
+  <title>AI & n8n Business Automation Morocco | Jectar One</title>
+  <meta name="description" content="Streamline operations with n8n workflow automation and custom AI integration in Morocco. Automate lead routing, customer support pipelines, CRM syncing, and admin tasks." />
+  <meta name="keywords" content="n8n automation Morocco, AI workflows local business, business automation agency Casablanca Rabat, CRM automation Morocco, Jectar One" />
+  <meta name="author" content="Jectar One" />
+  <link rel="canonical" href="https://jectar.one/ai-automation-morocco.html" />
+
+  <!-- Multilingual Alternates -->
+  <link rel="alternate" hreflang="en" href="https://jectar.one/ai-automation-morocco.html" />
+  <link rel="alternate" hreflang="x-default" href="https://jectar.one/ai-automation-morocco.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="AI & n8n Business Automation Morocco | Jectar One" />
+  <meta property="og:description" content="Connect your systems with custom n8n pipelines. Automate client intakes, CRM logs, and WhatsApp follow-ups." />
+  <meta property="og:url"         content="https://jectar.one/ai-automation-morocco.html" />
+  <meta property="og:type"        content="website" />
+  <meta name="twitter:card"       content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+   
+  <!-- Tailwind (utilities) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- JSON-LD Structured Data: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://jectar.one/ai-automation-morocco.html#service",
+        "name": "AI & Business Automation Systems",
+        "serviceType": "Process Optimization & System Integration",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Jectar One",
+          "image": "https://jectar.one/freesoft.png",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Rabat",
+            "addressCountry": "MA"
+          }
+        },
+        "description": "Integration of cloud APIs, databases, CRM webhooks, and n8n backend workflows to eliminate manual data entry and automate client outreach tasks."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://jectar.one/ai-automation-morocco.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is n8n and why do you use it instead of Zapier?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "n8n is a highly flexible, open-source workflow automation tool. Unlike Zapier, which gets extremely expensive at scale and limits complex multi-branch nesting, n8n allows us to self-host custom logic and process secure data without per-execution charges."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can AI bots handle customer inquiries on multiple channels?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We link OpenAI or Anthropic API endpoints with webhooks from Instagram, Facebook Messenger, WhatsApp, and email, enabling a unified AI assistant to capture details across all platforms simultaneously."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does it take to implement a custom automation workflow?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Basic workflows (like contact forms syncing with CRM and instant WhatsApp notifications) take 1 to 2 weeks. Comprehensive custom AI agents connected to proprietary databases take between 4 to 6 weeks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will our data remain secure and private?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Because we use secure self-hosted n8n instances and direct official API endpoints, your customer databases and logs never pass through third-party advertising or public caching servers."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- Canvas particles -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- LOADER -->
+<div id="loader" aria-hidden="true">
+  <p class="loader__logo">JECTAR ONE</p>
+  <div class="loader__track"><div class="loader__fill"></div></div>
+  <p class="loader__sub">Workflow Automation Systems</p>
+  <div class="loader__dots">
+    <span class="loader__dot"></span>
+    <span class="loader__dot"></span>
+    <span class="loader__dot"></span>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-mark" aria-hidden="true">J</div>
+        <span class="nav__logo-text">Jectar <span class="nav__logo-sub">One</span></span>
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="index.html#about" class="nav__link">About</a></li>
+        <li><a href="index.html#services" class="nav__link">Services</a></li>
+        <li><a href="index.html#portfolio" class="nav__link">Work</a></li>
+        <li><a href="index.html#process" class="nav__link">Process</a></li>
+        <li><a href="#faq" class="nav__link">FAQ</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <div class="lang-switcher" style="display:flex;gap:0.35rem;margin-right:0.75rem;">
+          <a href="index.html" class="lang-btn" style="font-size:0.7rem;padding:0.25rem 0.5rem;border-radius:6px;color:#fff;background:rgba(124,58,237,0.3);border:1px solid rgba(124,58,237,0.5);text-decoration:none;">EN</a>
+          <a href="fr/index.html" class="lang-btn" style="font-size:0.7rem;padding:0.25rem 0.5rem;border-radius:6px;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);text-decoration:none;">FR</a>
+          <a href="ar/index.html" class="lang-btn" style="font-size:0.7rem;padding:0.25rem 0.5rem;border-radius:6px;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);text-decoration:none;">AR</a>
+        </div>
+        <a href="#contact" class="btn btn--primary btn--sm">Request a Demo</a>
+        <button class="nav__ham" onclick="toggleMenu()" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="nav__ham-line"></span>
+          <span class="nav__ham-line"></span>
+          <span class="nav__ham-line"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="nav__mobile" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div style="display:flex;gap:0.5rem;justify-content:center;margin-bottom:1rem;">
+      <a href="index.html" style="font-size:0.8rem;padding:0.35rem 0.75rem;border-radius:8px;color:#fff;background:rgba(124,58,237,0.3);border:1px solid rgba(124,58,237,0.5);text-decoration:none;">EN</a>
+      <a href="fr/index.html" style="font-size:0.8rem;padding:0.35rem 0.75rem;border-radius:8px;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);text-decoration:none;">FR</a>
+      <a href="ar/index.html" style="font-size:0.8rem;padding:0.35rem 0.75rem;border-radius:8px;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);text-decoration:none;">AR</a>
+    </div>
+    <a href="index.html#about" class="nav__mobile-link" onclick="toggleMenu()">About</a>
+    <a href="index.html#services" class="nav__mobile-link" onclick="toggleMenu()">Services</a>
+    <a href="index.html#portfolio" class="nav__mobile-link" onclick="toggleMenu()">Work</a>
+    <a href="index.html#process" class="nav__mobile-link" onclick="toggleMenu()">Process</a>
+    <a href="#faq" class="nav__mobile-link" onclick="toggleMenu()">FAQ</a>
+    <a href="#contact" class="nav__mobile-link" onclick="toggleMenu()">Contact</a>
+    <a href="#contact" class="btn btn--primary" onclick="toggleMenu()" style="margin-top:1.25rem;">Request a Demo</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero min-h-[85vh] flex items-center pt-32 pb-16">
+    <div class="orb" style="width:700px;height:700px;background:radial-gradient(circle,rgba(59,130,246,0.12) 0%,transparent 70%);top:-240px;right:-200px;"></div>
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <div class="hero__badge" style="color:var(--blue);border-color:rgba(59,130,246,0.3)">
+            <span class="hero__badge-dot" style="background-color:var(--blue)"></span>
+            Custom Integration & n8n
+          </div>
+          <h1 class="hero__title">
+            AI & Business<br>
+            <span class="g-text" style="background:linear-gradient(135deg, #00d4ff 0%, #3b82f6 100%);-webkit-background-clip:text;">Automation Morocco</span>
+          </h1>
+          <p class="hero__sub">
+            Free your team from repetitive tasks. We design custom AI workers and n8n background pipelines that qualify leads, sync customer records, generate instant SMS/WhatsApp updates, and connect legacy databases automatically.
+          </p>
+          <div class="hero__ctas">
+            <a href="#contact" class="btn btn--primary" style="background:linear-gradient(135deg,#00d4ff,#3b82f6)">Optimize My Workflow</a>
+            <a href="#features" class="btn btn--ghost">Explore Systems ↓</a>
+          </div>
+        </div>
+        <div class="hero__poster" aria-hidden="true">
+          <div class="hero__poster-ring hero__poster-ring--1" style="border-color:rgba(59,130,246,0.15)"></div>
+          <div class="hero__poster-ring hero__poster-ring--2" style="border-color:rgba(59,130,246,0.08)"></div>
+          <div class="hero__photo-wrap anim-float">
+            <div class="hero__photo-border" style="border-color:rgba(59,130,246,0.25)"></div>
+            <div class="hero__photo-frame">
+              <img src="freesoft.png" alt="AI automation architecture diagram" style="object-fit:cover;width:100%;height:100%;" />
+            </div>
+            <div class="hero__nametag">
+              <p class="hero__name">n8n Flows</p>
+              <p class="hero__role">CRM & AI Sync 🇲🇦</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="section-pad grid-bg">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:4rem;">
+        <p class="section-label" style="justify-content:center;color:#3b82f6;">System Engineering</p>
+        <h2 class="section-title">Automate Admin Friction</h2>
+        <p style="color:rgba(255,255,255,0.38);max-width:550px;margin:0.9rem auto 0;line-height:1.7;font-size:0.95rem;">
+          How we replace spreadsheets and manual checks with self-healing background scripts.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="svc-card g-border">
+          <div class="svc-card__icon" style="background:linear-gradient(135deg,rgba(0,212,255,0.1),rgba(0,212,255,0.2));">⚙️</div>
+          <h3 class="svc-card__title">Custom n8n Pipelines</h3>
+          <p class="svc-card__desc">
+            We host secure n8n servers specifically for your business, creating custom automation flows that execute complex conditional logic without high per-task subscription fees.
+          </p>
+        </div>
+        <div class="svc-card g-border">
+          <div class="svc-card__icon" style="background:linear-gradient(135deg,rgba(124,58,237,0.1),rgba(124,58,237,0.2));">🧠</div>
+          <h3 class="svc-card__title">OpenAI & Anthropic Logic</h3>
+          <p class="svc-card__desc">
+            We move past hard-coded bots. Our pipelines utilize AI models to read client inquiries, categorize sentiment, draft intelligent email replies, and qualify leads autonomously.
+          </p>
+        </div>
+        <div class="svc-card g-border">
+          <div class="svc-card__icon" style="background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(16,185,129,0.2));">🔄</div>
+          <h3 class="svc-card__title">CRM Database Sync</h3>
+          <p class="svc-card__desc">
+            Keep your systems aligned. Automatically populate client cards in HubSpot, Salesforce, or custom databases as soon as a WhatsApp agent completes an interaction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="section-pad grid-bg">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <p class="section-label" style="justify-content:center;color:#3b82f6;">FAQ</p>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq__wrapper">
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <h3>What is n8n and why do you use it instead of Zapier?</h3>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-content">
+            <p>n8n is a highly flexible, open-source workflow automation tool. Unlike Zapier, which gets extremely expensive at scale and limits complex multi-branch nesting, n8n allows us to self-host custom logic and process secure data without per-execution charges.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <h3>Can AI bots handle customer inquiries on multiple channels?</h3>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-content">
+            <p>Yes. We link OpenAI or Anthropic API endpoints with webhooks from Instagram, Facebook Messenger, WhatsApp, and email, enabling a unified AI assistant to capture details across all platforms simultaneously.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <h3>How long does it take to implement a custom automation workflow?</h3>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-content">
+            <p>Basic workflows (like contact forms syncing with CRM and instant WhatsApp notifications) take 1 to 2 weeks. Comprehensive custom AI agents connected to proprietary databases take between 4 to 6 weeks.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <h3>Will our data remain secure and private?</h3>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-content">
+            <p>Yes. Because we use secure self-hosted n8n instances and direct official API endpoints, your customer databases and logs never pass through third-party advertising or public caching servers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-pad">
+    <div class="container">
+      <div class="contact__grid">
+        <div>
+          <div class="contact__form-wrap glass">
+            <h3 class="contact__form-title">Consult with an Automation Engineer</h3>
+            <p class="contact__form-sub">We review your administrative tasks and recommend immediate time-saving automations.</p>
+            <form id="contact-form" onsubmit="handleSubmit(event)" novalidate>
+              <div class="form__row">
+                <div class="form__group" style="margin-bottom:0;">
+                  <label class="form__label" for="f-name">Your Name</label>
+                  <input id="f-name" type="text" class="form__field" placeholder="Name" required />
+                </div>
+                <div class="form__group" style="margin-bottom:0;">
+                  <label class="form__label" for="f-email">Email Address</label>
+                  <input id="f-email" type="email" class="form__field" placeholder="email@address.com" required />
+                </div>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="f-service">Automation Need</label>
+                <select id="f-service" class="form__field" style="cursor:pointer;appearance:none;">
+                  <option>Self-Hosted n8n Setup</option>
+                  <option>WhatsApp & Social Media AI Bot</option>
+                  <option>CRM / Database Integrations</option>
+                  <option>Other / Vague Idea</option>
+                </select>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="f-msg">Details</label>
+                <textarea id="f-msg" class="form__field" placeholder="List the tools you use now (e.g., Sheets, HubSpot, Slack, WhatsApp) and the primary manual tasks you want to eliminate..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary w-full py-3" style="background:linear-gradient(135deg,#00d4ff,#3b82f6)">
+                <span class="btn-text">Send Automation Inquiry →</span>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="contact__info">
+          <div class="info-card glass">
+            <div class="info-card__icon">💬</div>
+            <p class="info-card__label">WhatsApp Direct</p>
+            <a href="https://wa.me/212752138075" target="_blank" rel="noopener noreferrer" class="info-card__value text-emerald-400">+212 752 138 075</a>
+          </div>
+          <div class="info-card glass">
+            <div class="info-card__icon">📧</div>
+            <p class="info-card__label">Email</p>
+            <a href="mailto:info@jectar.one" class="info-card__value text-blue-400">info@jectar.one</a>
+          </div>
+          <div class="info-card info-card--available">
+            <span class="available-dot"></span>
+            <strong class="text-emerald-400 text-xs">Available Now</strong>
+            <p class="text-[11px] text-white/40 mt-1">Currently integrating n8n servers for regional enterprises.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full pb-8 border-b border-white/5">
+        <div>
+          <a href="index.html" class="footer__logo mb-4 inline-flex">
+            <div class="footer__logo-mark">J</div>
+            <div>
+              <p class="footer__logo-name">Jectar One</p>
+              <p class="footer__logo-domain">Premium digital systems for Moroccan businesses.</p>
+            </div>
+          </a>
+          <p class="text-xs text-white/40 leading-relaxed mt-2">
+            We engineer high-performance websites, local SEO architectures, and custom AI/WhatsApp automations for market leaders in Morocco.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold text-white/80 uppercase tracking-wider mb-3">Navigation</h4>
+          <ul class="space-y-2 text-xs text-white/50" role="list">
+            <li><a href="index.html#about" class="hover:text-white transition">About Jectar</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition">Core Services</a></li>
+            <li><a href="index.html#portfolio" class="hover:text-white transition">Our Work</a></li>
+            <li><a href="index.html#process" class="hover:text-white transition">The Process</a></li>
+            <li><a href="index.html#contact" class="hover:text-white transition">Get in Touch</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold text-white/80 uppercase tracking-wider mb-3">Specialized SEO Solutions</h4>
+          <ul class="space-y-2 text-xs text-white/50" role="list">
+            <li><a href="restaurant-website-design-morocco.html" class="hover:text-white transition">Restaurant Website Design</a></li>
+            <li><a href="whatsapp-booking-systems.html" class="hover:text-white transition">WhatsApp Booking Systems</a></li>
+            <li><a href="ai-automation-morocco.html" class="text-white font-medium hover:text-white transition">AI & n8n Automation</a></li>
+            <li><a href="restaurant-seo-rabat.html" class="hover:text-white transition">Restaurant SEO (Rabat)</a></li>
+            <li><a href="luxury-branding-restaurants.html" class="hover:text-white transition">Luxury Restaurant Branding</a></li>
+            <li><a href="google-maps-seo-morocco.html" class="hover:text-white transition">Google Maps SEO Morocco</a></li>
+            <li><a href="multilingual-website-development-morocco.html" class="hover:text-white transition">Multilingual Website Dev</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="flex flex-col sm:flex-row justify-between items-center w-full pt-4 gap-4 text-xs text-white/30">
+        <div class="flex gap-4">
+          <a href="#" class="footer__social" aria-label="Twitter">𝕏</a>
+          <a href="#" class="footer__social" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer__social" aria-label="Instagram">📸</a>
+        </div>
+        <span>© 2026 jectar.one · Designed in Morocco</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE DOCK -->
+<nav class="dock" aria-label="Mobile dock navigation">
+  <a href="index.html" class="dock__item"><span class="dock__icon">🏠</span><span>Home</span></a>
+  <a href="#features" class="dock__item"><span class="dock__icon">⚡</span><span>Features</span></a>
+  <a href="#faq" class="dock__item"><span class="dock__icon">❓</span><span>FAQ</span></a>
+  <a href="#contact" class="dock__item"><span class="dock__icon">✉️</span><span>Contact</span></a>
+</nav>
+
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+<script src="js/particles.js" defer></script>
+<script src="js/main.js"      defer></script>
+
+</body>
+</html>
