@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
   <title>Restaurant SEO Morocco: How to Get More Reservations from Google (2026) | Jectar</title>
   <meta name="description" content="Restaurant SEO guide for Morocco: rank on Google Maps, TripAdvisor, and food apps. Get more reservations, takeaway orders, and walk-ins using local SEO in 2026." />
   <link rel="canonical" href="https://jectar.one/blog/local-seo/restaurant-seo-guide/" />
@@ -78,6 +79,20 @@
   }
   </script>
 
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jectar.one/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jectar.one/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Local SEO", "item": "https://jectar.one/blog/local-seo/" },
+      { "@type": "ListItem", "position": 4, "name": "Restaurant SEO Morocco" }
+    ]
+  }
+  </script>
+
   <!-- JSON-LD: FAQPage -->
   <script type="application/ld+json">
   {
@@ -128,37 +143,50 @@
   }
   </script>
 
-  <!-- Reading progress -->
-  <style>
-    .reading-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #7c3aed, #2563eb); z-index: 9999; width: 0%; transition: width 0.1s; }
-  </style>
+
 </head>
 <body>
-  <div class="reading-progress" id="readingProgress"></div>
 
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner container">
-      <a href="../../../" class="nav__logo">Jectar <span>One</span></a>
-      <ul class="nav__links">
-        <li><a href="../../../#about" class="nav__link">About</a></li>
-        <li><a href="../../../#services" class="nav__link">Services</a></li>
-        <li><a href="../../../#work" class="nav__link">Work</a></li>
-        <li><a href="../../../#process" class="nav__link">Process</a></li>
-        <li><a href="../../../#trust" class="nav__link">Trust</a></li>
-        <li><a href="../../../#contact" class="nav__link">Contact</a></li>
-        <li><a href="../../" class="nav__link">Blog</a></li>
+<!-- Reading Progress Bar -->
+<div class="reading-progress" id="readingProgress"></div>
+
+<canvas id="particles-canvas"></canvas>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="../../../index.html" class="nav__logo">
+        <div class="nav__logo-mark" aria-hidden="true">J</div>
+        <span class="nav__logo-text">Jectar <span class="nav__logo-sub">One</span></span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="../../../index.html#about"    class="nav__link">About</a></li>
+        <li><a href="../../../index.html#services" class="nav__link">Services</a></li>
+        <li><a href="../../../blog/"               class="nav__link" style="color:var(--blue);">Blog</a></li>
+        <li><a href="../../../index.html#contact"  class="nav__link">Contact</a></li>
       </ul>
-      <div class="nav__lang">
-        <a href="../../../" class="lang-btn">EN</a>
-        <a href="../../../fr/" class="lang-btn">FR</a>
-        <a href="../../../ar/" class="lang-btn">AR</a>
+      <div class="nav__actions">
+        <div class="lang-switcher" style="display:flex;gap:0.35rem;margin-right:0.75rem;">
+          <a href="../../../index.html" style="font-size:0.7rem;padding:0.25rem 0.5rem;border-radius:6px;color:#fff;background:rgba(124,58,237,0.3);border:1px solid rgba(124,58,237,0.5);text-decoration:none;">EN</a>
+          <a href="../../../fr/" style="font-size:0.7rem;padding:0.25rem 0.5rem;border-radius:6px;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);text-decoration:none;">FR</a>
+          <a href="../../../ar/" style="font-size:0.7rem;padding:0.25rem 0.5rem;border-radius:6px;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);text-decoration:none;">AR</a>
+        </div>
+        <a href="../../../index.html#contact" class="btn btn--primary btn--sm">Build My System</a>
+        <button class="nav__ham" onclick="toggleMenu()" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="nav__ham-line"></span><span class="nav__ham-line"></span><span class="nav__ham-line"></span>
+        </button>
       </div>
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </nav>
+  <div id="mobile-menu" class="nav__mobile" role="dialog" aria-modal="true">
+    <a href="../../../index.html#about"    class="nav__mobile-link" onclick="toggleMenu()">About</a>
+    <a href="../../../index.html#services" class="nav__mobile-link" onclick="toggleMenu()">Services</a>
+    <a href="../../../blog/"               class="nav__mobile-link" onclick="toggleMenu()">Blog</a>
+    <a href="../../../index.html#contact"  class="nav__mobile-link" onclick="toggleMenu()">Contact</a>
+    <a href="../../../index.html#contact" class="btn btn--primary" onclick="toggleMenu()" style="margin-top:1.25rem;">Build My System</a>
+  </div>
+</header>
 
   <!-- ARTICLE -->
   <article class="article-layout container" itemscope itemtype="https://schema.org/Article">
@@ -183,6 +211,7 @@
           <span class="cat-pill cat-pill--seo">Local SEO</span>
           <span>May 22, 2026</span>
           <span>10 min read</span>
+          <span style="color:var(--emerald);font-size:0.8rem;">Updated May 22, 2026</span>
         </div>
         <h1 itemprop="headline">Restaurant SEO Morocco: How to Get More Reservations from Google (2026)</h1>
         <p class="article-header__intro">
@@ -622,10 +651,10 @@
             <h4>AI Automation for Moroccan Businesses</h4>
             <p>Automate WhatsApp reservations, follow-ups, and content creation — 5 tasks to start with today.</p>
           </a>
-          <a href="../../industry/restaurant-digital-system-morocco/" class="art-card">
-            <div class="art-card__cat cat-pill--industry">Industry</div>
-            <h4>How to Build a Complete Digital System for Your Restaurant in Morocco</h4>
-            <p>From website to WhatsApp automation to Google Maps — the full digital infrastructure for modern Moroccan restaurants.</p>
+          <a href="../../morocco-digital/digital-transformation-moroccan-sme/" class="art-card">
+            <div class="art-card__cat cat-pill--digital">Morocco Digital</div>
+            <h4>Digital Transformation for Moroccan SMEs: A Practical Roadmap</h4>
+            <p>4-stage framework to take your business from zero digital presence to AI-powered operations.</p>
           </a>
         </div>
       </section>
@@ -660,6 +689,17 @@
         </ul>
       </div>
 
+      <!-- Service Pages -->
+      <div class="sidebar-card sidebar-related">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="../../../restaurant-website-design-morocco.html">Restaurant Website Design</a></li>
+          <li><a href="../../../restaurant-seo-rabat.html">Restaurant SEO Rabat</a></li>
+          <li><a href="../../../google-maps-seo-morocco.html">Google Maps SEO Service</a></li>
+          <li><a href="../../../luxury-branding-restaurants.html">Luxury Restaurant Branding</a></li>
+        </ul>
+      </div>
+
       <!-- Sidebar CTA -->
       <div class="sidebar-card" style="background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(37,99,235,0.15)); border: 1px solid rgba(124,58,237,0.3); text-align: center; padding: 1.5rem;">
         <h4 style="color: #a78bfa; margin-bottom: 0.75rem;">Free Restaurant SEO Audit</h4>
@@ -673,7 +713,6 @@
         <ul>
           <li><a href="../google-maps-seo-morocco/">Google Maps SEO Morocco</a></li>
           <li><a href="../../ai-automation/ai-automation-morocco-guide/">AI Automation Guide</a></li>
-          <li><a href="../../whatsapp/whatsapp-business-automation-guide/">WhatsApp Automation</a></li>
           <li><a href="../../morocco-digital/digital-transformation-moroccan-sme/">Digital Transformation SME</a></li>
         </ul>
       </div>
@@ -682,50 +721,70 @@
 
   </article>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer__inner container">
-      <a href="../../../" class="nav__logo">Jectar <span>One</span></a>
-      <p class="footer__tagline">Moroccan AI &amp; web studio engineering perception, authority &amp; conversion.</p>
-      <ul class="footer__links">
-        <li><a href="../../../">Home</a></li>
-        <li><a href="../../">Blog</a></li>
-        <li><a href="../../../#contact">Contact</a></li>
-        <li><a href="mailto:info@jectar.one">info@jectar.one</a></li>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <a href="../../../index.html" class="footer__logo">
+        <div class="footer__logo-mark">J</div>
+        <div>
+          <p class="footer__logo-name">Jectar One</p>
+          <p class="footer__logo-domain">Premium digital systems for Moroccan businesses.</p>
+        </div>
+      </a>
+      <ul class="footer__links" role="list">
+        <li><a href="../../../index.html#about"    class="footer__link">About</a></li>
+        <li><a href="../../../index.html#services" class="footer__link">Services</a></li>
+        <li><a href="../../../blog/"               class="footer__link">Blog</a></li>
+        <li><a href="../../../index.html#contact"  class="footer__link">Contact</a></li>
       </ul>
-      <p class="footer__copy">© 2026 Jectar One. All rights reserved.</p>
+      <div class="footer__right">
+        <a href="https://x.com/jectarone" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="Twitter">𝕏</a>
+        <a href="https://www.instagram.com/jectarone" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="Instagram">📸</a>
+        <a href="https://www.tiktok.com/@jectarone" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="TikTok">📱</a>
+        <span>© 2026 jectar.one</span>
+      </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- Scripts -->
-  <script src="../../../js/particles.js" defer></script>
-  <script src="../../../js/main.js" defer></script>
+<!-- MOBILE DOCK -->
+<nav class="dock" aria-label="Mobile dock navigation">
+  <a href="../../../index.html"          class="dock__item"><span class="dock__icon">🏠</span><span>Home</span></a>
+  <a href="../../../index.html#services" class="dock__item"><span class="dock__icon">⚡</span><span>Services</span></a>
+  <a href="../../../blog/"               class="dock__item"><span class="dock__icon">📝</span><span>Blog</span></a>
+  <a href="../../../index.html#contact"  class="dock__item"><span class="dock__icon">✉️</span><span>Contact</span></a>
+</nav>
 
-  <!-- Reading progress -->
-  <script>
-    window.addEventListener('scroll', function() {
-      var el = document.getElementById('readingProgress');
-      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      el.style.width = (winScroll / height * 100) + '%';
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+<script src="../../../js/particles.js" defer></script>
+<script src="../../../js/main.js" defer></script>
+
+<script>
+  // Reading progress bar
+  window.addEventListener('scroll', () => {
+    const el = document.getElementById('readingProgress');
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    if (docH > 0) el.style.width = (window.scrollY / docH * 100) + '%';
+  });
+
+  // FAQ toggle
+  document.querySelectorAll('.faq-item__q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      document.querySelectorAll('.faq-item__q').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
-  </script>
-
-  <!-- FAQ toggle -->
-  <script>
-    document.querySelectorAll('.faq-item__q').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var item = this.closest('.faq-item');
-        var isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-        document.querySelectorAll('.faq-item__q').forEach(function(b) { b.setAttribute('aria-expanded', 'false'); });
-        if (!isOpen) {
-          item.classList.add('open');
-          this.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-  </script>
+  });
+</script>
 
 </body>
 </html>
