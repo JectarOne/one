@@ -1,0 +1,9 @@
+# JectarOne — Responsible Disclosure Policy (RFC 9116)
+# If you find a security issue, please report it. We respond promptly.
+
+Contact: mailto:contact@jectar.one
+Contact: tel:+212752138075
+Expires: 2027-06-30T00:00:00.000Z
+Preferred-Languages: en, fr, ar
+Canonical: https://jectar.one/.well-known/security.txt
+Policy: https://jectar.one/SECURITY.md

@@ -1,0 +1,15 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JectarOne logo avatar">
+  <defs>
+    <linearGradient id="jo-grad-a" x1="64" y1="48" x2="192" y2="208" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="jo-bg" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#08111F"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#jo-bg)"/>
+  <path d="M128 48 L188 72 V128 C188 163 161 186.5 128 199 C95 186.5 68 163 68 128 V72 Z" fill="url(#jo-grad-a)"/>
+  <path d="M101 130 L120 149 L156 107" stroke="#F8FAFC" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

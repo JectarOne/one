@@ -3,34 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 — Page Not Found | Jectar One</title>
-  <meta name="robots" content="noindex, nofollow" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <meta name="theme-color" content="#08111F" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="favicon-32x32.png" />
+
+  <title>Page Not Found | JectarOne</title>
+  <meta name="description" content="The page you were looking for could not be found." />
+  <meta name="robots" content="noindex, follow" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <style>
-    body { display:flex; align-items:center; justify-content:center; min-height:100vh; text-align:center; padding:2rem; }
-    .e404 { max-width:520px; }
-    .e404__code { font-family:'Space Grotesk',sans-serif; font-size:clamp(5rem,18vw,9rem); font-weight:700; line-height:1; background:linear-gradient(135deg,#7c3aed,#00d4ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:1rem; }
-    .e404__title { font-size:clamp(1.2rem,3vw,1.75rem); font-weight:600; color:#fff; margin-bottom:0.75rem; }
-    .e404__sub { color:rgba(255,255,255,0.45); font-size:0.95rem; line-height:1.7; margin-bottom:2rem; }
-    .e404__actions { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
-  </style>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="e404">
-    <p class="e404__code">404</p>
-    <h1 class="e404__title">Page not found.</h1>
-    <p class="e404__sub">
-      This page doesn't exist or was moved.<br>
-      Head back and let's build something real.
-    </p>
-    <div class="e404__actions">
-      <a href="/" class="btn btn--primary">← Back to Home</a>
-      <a href="https://wa.me/212752138075" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">💬 WhatsApp Jectar</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="JectarOne home">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/logo-mark.svg" width="24" height="24" alt="" /></span>
+        <span class="brand-copy"><strong>JectarOne</strong><small>Cybersecurity Consulting</small></span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="index.html#industries">Industries</a>
+        <a href="blog/">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-login" href="tel:+212752138075">+212 752-138075</a>
+        <a class="btn btn-primary btn-sm" href="index.html#contact">Request Assessment</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" style="border-bottom:0;min-height:70vh;display:grid;place-items:center;text-align:center;">
+      <div class="container">
+        <p class="section-kicker" style="margin-inline:auto;">Error 404</p>
+        <h1 style="margin-inline:auto;">This page could not be found.</h1>
+        <p style="margin-inline:auto;">The link may be broken or the page may have moved. Let's get you back on track.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="btn btn-primary" href="index.html">Back to home <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+          <a class="btn btn-secondary" href="index.html#contact">Contact us <i data-lucide="mail" aria-hidden="true"></i></a>
+        </div>
+        <div class="article-meta" style="justify-content:center;margin-top:2rem;">
+          <a href="services.html" style="color:var(--accent);font-weight:600;">Services</a><span class="dot"></span>
+          <a href="blog/" style="color:var(--accent);font-weight:600;">Blog</a><span class="dot"></span>
+          <a href="about.html" style="color:var(--accent);font-weight:600;">About</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bottom" style="border-top:0;margin-top:0;">
+      <span>© 2026 JectarOne. All rights reserved.</span>
+      <span>Cybersecurity consulting for Moroccan businesses.</span>
     </div>
-  </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

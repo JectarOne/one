@@ -1,4 +1,20 @@
+# Local tooling / editor
 .claude/
+.vscode/
+.idea/
+
+# OS junk
 .DS_Store
 Thumbs.db
 *.log
+
+# Dependencies
+node_modules/
+
+# Working / planning notes (not part of the site)
+fix2.md
+jecjec.md
+*.original.md
+
+# Unrelated demo
+demo/

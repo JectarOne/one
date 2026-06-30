@@ -1,75 +1,67 @@
-/* ════════════════════════════════════════════════
-   JECTAR ONE — particles.js
-   Animated canvas particle network
-════════════════════════════════════════════════ */
-
 (function initParticles() {
-  const canvas = document.getElementById('particles-canvas');
+  const canvas = document.getElementById("particles-canvas");
   if (!canvas) return;
 
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext("2d");
+  const colors = ["#00E5FF", "#3B82F6", "#10B981"];
+  const maxDistance = 116;
+  let particles = [];
 
-  // ── Resize ─────────────────────────────────────
   function resize() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.floor(window.innerWidth * pixelRatio);
+    canvas.height = Math.floor(window.innerHeight * pixelRatio);
+    canvas.style.width = `${window.innerWidth}px`;
+    canvas.style.height = `${window.innerHeight}px`;
+    ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+    const isMobile = window.innerWidth < 768;
+    const count = isMobile ? 26 : Math.min(72, Math.floor(window.innerWidth / 18));
+    particles = Array.from({ length: count }, createParticle);
   }
-  resize();
-  window.addEventListener('resize', resize, { passive: true });
 
-  // ── Particle factory ────────────────────────────
-  const COLORS = ['#00d4ff', '#7c3aed', '#10b981'];
-  const MAX_DIST = 90;
-  const isMobile = window.innerWidth < 768;
-
-  function makeParticle() {
+  function createParticle() {
     return {
-      x:   Math.random() * canvas.width,
-      y:   Math.random() * canvas.height,
-      r:   Math.random() * 1.4 + 0.4,
-      dx:  (Math.random() - 0.5) * 0.32,
-      dy:  (Math.random() - 0.5) * 0.32,
-      op:  Math.random() * 0.42 + 0.08,
-      col: COLORS[Math.floor(Math.random() * COLORS.length)],
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      radius: Math.random() * 1.6 + 0.5,
+      dx: (Math.random() - 0.5) * 0.36,
+      dy: (Math.random() - 0.5) * 0.36,
+      alpha: Math.random() * 0.42 + 0.08,
+      color: colors[Math.floor(Math.random() * colors.length)]
     };
   }
 
-  const count = isMobile ? 20 : Math.min(45, Math.floor(window.innerWidth / 22));
-  const pts   = Array.from({ length: count }, makeParticle);
-
-  // ── Draw loop ───────────────────────────────────
   function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-    // Move & draw dots
-    pts.forEach(p => {
-      p.x += p.dx;
-      p.y += p.dy;
+    particles.forEach((particle) => {
+      particle.x += particle.dx;
+      particle.y += particle.dy;
 
-      if (p.x < 0 || p.x > canvas.width)  p.dx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      if (particle.x < 0 || particle.x > window.innerWidth) particle.dx *= -1;
+      if (particle.y < 0 || particle.y > window.innerHeight) particle.dy *= -1;
 
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle  = p.col;
-      ctx.globalAlpha = p.op;
+      ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+      ctx.fillStyle = particle.color;
+      ctx.globalAlpha = particle.alpha;
       ctx.fill();
     });
 
-    // Draw connections
-    for (let i = 0; i < pts.length; i++) {
-      for (let j = i + 1; j < pts.length; j++) {
-        const dx   = pts[i].x - pts[j].x;
-        const dy   = pts[i].y - pts[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
+    for (let i = 0; i < particles.length; i += 1) {
+      for (let j = i + 1; j < particles.length; j += 1) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist < MAX_DIST) {
+        if (distance < maxDistance) {
           ctx.beginPath();
-          ctx.moveTo(pts[i].x, pts[i].y);
-          ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.strokeStyle  = '#00d4ff';
-          ctx.globalAlpha  = (1 - dist / MAX_DIST) * 0.07;
-          ctx.lineWidth    = 0.5;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = "#00E5FF";
+          ctx.globalAlpha = (1 - distance / maxDistance) * 0.09;
+          ctx.lineWidth = 0.7;
           ctx.stroke();
         }
       }
@@ -79,5 +71,7 @@
     requestAnimationFrame(draw);
   }
 
+  resize();
+  window.addEventListener("resize", resize, { passive: true });
   draw();
 })();
