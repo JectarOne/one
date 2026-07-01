@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08111F" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+
+  <title>SSL Certificate Checker | JectarOne Free Tools</title>
+  <meta name="description" content="Check a website's SSL/TLS certificate: issuer, validity dates, days until expiry, and signature algorithm. Free tool by JectarOne." />
+  <link rel="canonical" href="https://jectar.one/tools/ssl-checker.html" />
+  <meta property="og:title" content="SSL Certificate Checker | JectarOne" />
+  <meta property="og:description" content="Check a website's TLS certificate and expiry." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/style.css?v=20260630" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../index.html" aria-label="JectarOne home">
+        <span class="brand-mark" aria-hidden="true"><img src="../assets/logo-mark.svg" width="24" height="24" alt="" /></span>
+        <span class="brand-copy"><strong>JectarOne</strong><small>Cybersecurity Consulting</small></span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <a href="index.html">Tools</a>
+        <a href="../blog/">Blog</a>
+        <a href="../index.html#industries">Industries</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-login" href="tel:+212752138075">+212 752-138075</a>
+        <a class="btn btn-primary btn-sm" href="../index.html#contact">Request Assessment</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>/</span> <a href="index.html">Tools</a> <span>/</span> SSL Certificate Checker</nav>
+        <p class="cat-chip" style="margin-top:1rem;"><i data-lucide="lock" aria-hidden="true"></i> Free Tool</p>
+        <h1>SSL Certificate Checker</h1>
+        <p>Enter a domain to inspect its TLS certificate — issuer, validity period, days until expiry, and signature algorithm.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="tool-panel">
+          <form id="ssl-form">
+            <div class="field" style="margin-bottom:0.8rem;">
+              <label for="ssl-url">Domain</label>
+              <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+                <input type="text" id="ssl-url" placeholder="example.com" autocomplete="off" spellcheck="false" style="flex:1;min-width:220px;" required />
+                <button class="btn btn-primary" id="ssl-btn" type="submit">Check certificate <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </form>
+          <div id="ssl-status" class="tool-note" style="display:none;"></div>
+          <div id="ssl-result" class="is-hidden" style="margin-top:1.2rem;"></div>
+        </div>
+        <p class="tool-note"><i data-lucide="info" aria-hidden="true"></i> Connects on port 443 to read the certificate the server presents. Private and reserved addresses are blocked.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html" aria-label="JectarOne home">
+          <span class="brand-mark" aria-hidden="true"><img src="../assets/logo-mark.svg" width="24" height="24" alt="" /></span>
+          <span class="brand-copy"><strong>JectarOne</strong><small>Cybersecurity Consulting</small></span>
+        </a>
+        <p>A Moroccan cybersecurity consultancy helping small and medium-sized businesses understand and improve their security posture.</p>
+        <div class="social-links" aria-label="Social links">
+          <a href="https://www.linkedin.com/company/jectarone" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Company</h3>
+        <a href="../about.html">About</a>
+        <a href="../index.html#process">Process</a>
+        <a href="../case-studies.html">Case Studies</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="footer-column">
+        <h3>Tools</h3>
+        <a href="password-generator.html">Password Generator</a>
+        <a href="password-strength-checker.html">Strength Checker</a>
+        <a href="security-headers-checker.html">Headers Checker</a>
+        <a href="ssl-checker.html">SSL Checker</a>
+      </div>
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <a href="../blog/">Blog</a>
+        <a href="index.html">Free Tools</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 JectarOne. All rights reserved.</span>
+      <span>Cybersecurity consulting for Moroccan businesses.</span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="../js/main.js?v=20260630" defer></script>
+  <script src="tools-ui.js?v=20260630" defer></script>
+  <script>
+  document.getElementById("ssl-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    JOTools.run({
+      endpoint: "api/ssl.php",
+      url: document.getElementById("ssl-url").value,
+      btn: document.getElementById("ssl-btn"),
+      statusEl: document.getElementById("ssl-status"),
+      resultEl: document.getElementById("ssl-result"),
+      render: function (d) {
+        var stState = d.grade === "F" ? "fail" : (d.grade === "A" ? "pass" : "warn");
+        var expStatus = d.daysLeft < 0 ? "fail" : (d.daysLeft < 30 ? "warn" : "pass");
+        var html = JOTools.gradeHead(d.grade, "Certificate for " + JOTools.esc(d.host), JOTools.esc(d.state));
+        html += JOTools.row(stState, "Status", "Overall certificate state.", d.state);
+        html += JOTools.row(expStatus, "Days until expiry",
+          d.daysLeft < 0 ? "The certificate has expired." : "Renew before this reaches zero.", String(d.daysLeft) + " days");
+        html += JOTools.row("info", "Valid from", null, d.validFrom);
+        html += JOTools.row("info", "Valid to", null, d.validTo);
+        html += JOTools.row("info", "Issued to (CN)", null, d.subject);
+        html += JOTools.row(d.selfSigned ? "warn" : "info", "Issuer", d.selfSigned ? "Self-signed — not trusted by browsers." : (d.issuerOrg || ""), d.issuer);
+        html += JOTools.row(d.weakSignature ? "warn" : "pass", "Signature algorithm",
+          d.weakSignature ? "Weak algorithm (SHA-1/MD5)." : "Modern signature algorithm.", d.signature);
+        if (d.altNamesCount) {
+          html += JOTools.row("info", "Covers " + d.altNamesCount + " name(s)", null, d.altNames.slice(0, 6).join(", ") + (d.altNamesCount > 6 ? " …" : ""));
+        }
+        return html + JOTools.cta();
+      }
+    });
+  });
+  </script>
+</body>
+</html>
