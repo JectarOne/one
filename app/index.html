@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08111F" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+
+  <title>Assessment Report Builder | JectarOne (Internal)</title>
+  <meta name="description" content="Internal tool for building branded JectarOne security assessment reports." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/style.css?v=20260630" />
+  <link rel="stylesheet" href="app.css?v=20260630" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../index.html" aria-label="JectarOne home">
+        <span class="brand-mark" aria-hidden="true"><img src="../assets/logo-mark.svg" width="24" height="24" alt="" /></span>
+        <span class="brand-copy"><strong>JectarOne</strong><small>Report Builder · Internal</small></span>
+      </a>
+      <div class="nav-actions">
+        <button class="btn btn-secondary btn-sm" id="btn-load" type="button">Load <i data-lucide="folder-open" aria-hidden="true"></i></button>
+        <button class="btn btn-secondary btn-sm" id="btn-save" type="button">Save <i data-lucide="save" aria-hidden="true"></i></button>
+        <button class="btn btn-primary btn-sm" id="btn-pdf" type="button">Generate PDF <i data-lucide="file-down" aria-hidden="true"></i></button>
+      </div>
+    </nav>
+  </header>
+  <input type="file" id="file-load" accept="application/json" hidden />
+
+  <main id="main" class="app-wrap">
+    <section class="page-hero" style="padding:120px 0 32px;border-bottom:1px solid var(--line);">
+      <div class="container">
+        <p class="section-kicker">Internal Tool</p>
+        <h1 style="font-size:clamp(1.8rem,3vw,2.4rem);">Assessment Report Builder</h1>
+        <p style="max-width:60ch;">Enter engagement details and findings, then generate a branded PDF report. Everything stays in this browser — nothing is uploaded. Your draft auto-saves locally.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding:40px 0;">
+      <div class="container app-grid">
+        <!-- LEFT: form -->
+        <div class="app-col">
+          <div class="tool-panel">
+            <h3 class="app-h">Engagement</h3>
+            <div class="app-2col">
+              <div class="field"><label for="f-client">Client / organization</label><input type="text" id="f-client" placeholder="Client name" /></div>
+              <div class="field"><label for="f-type">Engagement type</label>
+                <select id="f-type">
+                  <option>Security Assessment</option>
+                  <option>Vulnerability Assessment</option>
+                  <option>Penetration Testing</option>
+                  <option>Web Application Security Review</option>
+                  <option>Security Awareness</option>
+                  <option>Compliance Readiness</option>
+                </select>
+              </div>
+              <div class="field"><label for="f-date">Report date</label><input type="text" id="f-date" placeholder="e.g. 30 June 2026" /></div>
+              <div class="field"><label for="f-ref">Report reference</label><input type="text" id="f-ref" placeholder="e.g. JO-2026-014" /></div>
+              <div class="field"><label for="f-assessor">Assessor</label><input type="text" id="f-assessor" placeholder="Name" /></div>
+              <div class="field"><label for="f-scope">Scope (short)</label><input type="text" id="f-scope" placeholder="e.g. External web app + email" /></div>
+            </div>
+          </div>
+
+          <div class="tool-panel">
+            <h3 class="app-h">Executive summary</h3>
+            <div class="field"><textarea id="f-summary" rows="5" placeholder="Plain-language overview of risk and priorities for leadership."></textarea></div>
+          </div>
+
+          <div class="tool-panel">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+              <h3 class="app-h" style="margin:0;">Findings <span id="find-count" class="app-count">0</span></h3>
+              <button class="btn btn-secondary btn-sm" id="btn-add" type="button">Add finding <i data-lucide="plus" aria-hidden="true"></i></button>
+            </div>
+            <div id="findings"></div>
+            <p id="find-empty" class="tool-note"><i data-lucide="info" aria-hidden="true"></i> No findings yet. Click “Add finding”.</p>
+          </div>
+        </div>
+
+        <!-- RIGHT: live preview -->
+        <div class="app-col">
+          <div class="tool-panel app-sticky">
+            <h3 class="app-h">Risk matrix</h3>
+            <div class="rmx" id="rmx" aria-label="Risk matrix preview"></div>
+            <div class="rmx-legend">
+              <span><i class="dot z-low"></i> Low</span>
+              <span><i class="dot z-med"></i> Medium</span>
+              <span><i class="dot z-high"></i> High</span>
+              <span><i class="dot z-crit"></i> Critical</span>
+            </div>
+
+            <h3 class="app-h" style="margin-top:1.4rem;">Severity summary</h3>
+            <div id="sev-summary" class="sev-summary"></div>
+
+            <button class="btn btn-primary" id="btn-pdf2" type="button" style="width:100%;margin-top:1.3rem;">Generate PDF report <i data-lucide="file-down" aria-hidden="true"></i></button>
+            <p class="tool-note"><i data-lucide="shield-check" aria-hidden="true"></i> Client data never leaves your device. Auto-saved to this browser only.</p>
+            <button class="btn btn-secondary btn-sm" id="btn-clear" type="button" style="width:100%;margin-top:0.6rem;">Clear all</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Finding row template -->
+  <template id="tpl-finding">
+    <div class="finding">
+      <div class="finding-head">
+        <input type="text" class="f-title" placeholder="Finding title (e.g. Exposed admin panel)" />
+        <button class="icon-btn f-del" type="button" aria-label="Remove finding" title="Remove"><i data-lucide="trash-2" aria-hidden="true"></i></button>
+      </div>
+      <div class="app-3col">
+        <div class="field"><label>Severity</label>
+          <select class="f-sev">
+            <option value="Critical">Critical</option>
+            <option value="High">High</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="Low">Low</option>
+            <option value="Info">Info</option>
+          </select>
+        </div>
+        <div class="field"><label>Likelihood</label>
+          <select class="f-like"><option>Low</option><option selected>Medium</option><option>High</option></select>
+        </div>
+        <div class="field"><label>Impact</label>
+          <select class="f-imp"><option>Low</option><option selected>Medium</option><option>High</option></select>
+        </div>
+      </div>
+      <div class="field"><textarea class="f-desc" rows="2" placeholder="Description / evidence"></textarea></div>
+      <div class="field"><textarea class="f-rec" rows="2" placeholder="Recommendation"></textarea></div>
+    </div>
+  </template>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="../js/main.js?v=20260630" defer></script>
+  <script src="vendor/jspdf.umd.min.js?v=20260630" defer></script>
+  <script src="vendor/jspdf.plugin.autotable.min.js?v=20260630" defer></script>
+  <script src="report-builder.js?v=20260630" defer></script>
+</body>
+</html>
