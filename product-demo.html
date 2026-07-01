@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08111F" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+
+  <title>Interactive Product Demo (sample data) | JectarOne</title>
+  <meta name="description" content="A clickable, self-guided demo of the JectarOne platform concept. Sample data only — not a live product." />
+  <link rel="canonical" href="https://jectar.one/product-demo.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/style.css?v=20260630" />
+</head>
+<body>
+  <div class="demo-banner">
+    <i data-lucide="flask-conical" aria-hidden="true"></i>
+    Interactive demo — sample data, not a live product.
+    <a href="product.html">← Back to product</a>
+  </div>
+
+  <div class="demoapp">
+    <aside class="da-side">
+      <div class="da-brand">
+        <img src="assets/logo-avatar.svg" alt="" />
+        <strong>JectarOne</strong>
+      </div>
+      <button class="da-nav active" data-view="dashboard"><i data-lucide="layout-dashboard"></i> Dashboard</button>
+      <button class="da-nav" data-view="endpoints"><i data-lucide="monitor"></i> Endpoints</button>
+      <button class="da-nav" data-view="alerts"><i data-lucide="bell"></i> Alerts</button>
+      <button class="da-nav" data-view="reports"><i data-lucide="file-text"></i> Reports</button>
+      <button class="da-nav" data-view="settings"><i data-lucide="settings"></i> Settings</button>
+      <div class="da-foot">Demo workspace · sample data<br />No real systems are connected.</div>
+    </aside>
+
+    <main class="da-main">
+      <!-- DASHBOARD -->
+      <section class="da-view active" id="v-dashboard">
+        <div class="da-topbar">
+          <div><h2>Dashboard</h2><p>Overview of the sample workspace.</p></div>
+          <span class="da-badge b-ok"><span class="da-dot" style="background:#22c55e;"></span> Demo</span>
+        </div>
+        <div class="da-cards">
+          <div class="da-metric"><span>Security score</span><strong>82</strong><small style="color:#86efac;">Sample</small></div>
+          <div class="da-metric"><span>Open findings</span><strong id="m-findings">7</strong><small style="color:#fcd34d;">Sample</small></div>
+          <div class="da-metric"><span>Endpoints</span><strong>124</strong><small style="color:var(--muted);">Sample</small></div>
+          <div class="da-metric"><span>Critical</span><strong style="color:#fca5a5;">2</strong><small style="color:#fca5a5;">Sample</small></div>
+        </div>
+        <div class="da-grid2">
+          <div class="da-panel">
+            <h3>Recent activity <span style="color:var(--muted);font-weight:600;">sample</span></h3>
+            <div class="da-actline"><span class="da-dot" style="background:#ef4444;"></span> Critical finding opened — exposed RDP on <b style="color:#fff;margin:0 3px;">SRV-07</b> <time>2m</time></div>
+            <div class="da-actline"><span class="da-dot" style="background:#f59e0b;"></span> Outdated software on 3 hosts <time>26m</time></div>
+            <div class="da-actline"><span class="da-dot" style="background:#22c55e;"></span> Report exported for “Sample Client” <time>1h</time></div>
+            <div class="da-actline"><span class="da-dot" style="background:#38bdf8;"></span> New endpoint enrolled — WKS-118 <time>3h</time></div>
+          </div>
+          <div class="da-panel">
+            <h3>Findings by severity <span style="color:var(--muted);font-weight:600;">sample</span></h3>
+            <div class="da-bars" aria-hidden="true">
+              <div class="bar" style="height:30%;background:#22c55e;"></div>
+              <div class="bar" style="height:55%;background:#eab308;"></div>
+              <div class="bar" style="height:80%;background:#f59e0b;"></div>
+              <div class="bar" style="height:40%;background:#ef4444;"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;color:var(--muted);font-size:0.72rem;margin-top:0.5rem;">
+              <span>Low</span><span>Medium</span><span>High</span><span>Critical</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ENDPOINTS -->
+      <section class="da-view" id="v-endpoints">
+        <div class="da-topbar">
+          <div><h2>Endpoints</h2><p>Click a row to drill down. Sample inventory.</p></div>
+          <span class="da-badge b-ok"><span class="da-dot" style="background:#22c55e;"></span> 124 total</span>
+        </div>
+        <div class="da-panel" style="padding:0.4rem 0.6rem;">
+          <table class="da-table">
+            <thead><tr><th>Host</th><th>OS</th><th>Status</th><th>Risk</th><th>Last seen</th></tr></thead>
+            <tbody id="ep-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ALERTS -->
+      <section class="da-view" id="v-alerts">
+        <div class="da-topbar">
+          <div><h2>Alerts</h2><p>Simulated live alerts. Sample data.</p></div>
+          <button class="btn btn-secondary btn-sm" id="sim-alert" type="button">Simulate alert <i data-lucide="zap"></i></button>
+        </div>
+        <div class="da-panel" style="padding:0.4rem 0.6rem;">
+          <table class="da-table">
+            <thead><tr><th>Severity</th><th>Alert</th><th>Source</th><th>Time</th></tr></thead>
+            <tbody id="al-body">
+              <tr><td><span class="da-badge b-crit">Critical</span></td><td>Exposed RDP reachable from internet</td><td>SRV-07</td><td>2m</td></tr>
+              <tr><td><span class="da-badge b-high">High</span></td><td>Multiple failed admin logins</td><td>DC-01</td><td>18m</td></tr>
+              <tr><td><span class="da-badge b-med">Medium</span></td><td>Outdated OpenSSL detected</td><td>WEB-03</td><td>41m</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- REPORTS -->
+      <section class="da-view" id="v-reports">
+        <div class="da-topbar">
+          <div><h2>Reports</h2><p>Generate client-ready reports from findings.</p></div>
+        </div>
+        <div class="da-grid2">
+          <div class="da-panel">
+            <h3>Recent reports <span style="color:var(--muted);font-weight:600;">sample</span></h3>
+            <div class="da-actline"><i data-lucide="file-text" style="width:16px;height:16px;color:var(--accent);"></i> Security Assessment — Sample Client <time>PDF</time></div>
+            <div class="da-actline"><i data-lucide="file-text" style="width:16px;height:16px;color:var(--accent);"></i> Vulnerability Assessment — Demo Co <time>PDF</time></div>
+          </div>
+          <div class="da-panel" style="display:grid;align-content:center;text-align:center;gap:0.6rem;">
+            <h3 style="justify-content:center;">This part is real</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">The Report Builder is live today — build a real branded PDF now.</p>
+            <a class="btn btn-primary" href="app/" style="justify-self:center;">Open Report Builder <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="da-view" id="v-settings">
+        <div class="da-topbar">
+          <div><h2>Settings</h2><p>Illustrative settings — read-only in the demo.</p></div>
+        </div>
+        <div class="da-panel">
+          <div class="da-actline"><i data-lucide="shield" style="width:16px;height:16px;color:var(--accent);"></i> Multi-factor authentication <span class="da-badge b-ok" style="margin-left:auto;">Enforced</span></div>
+          <div class="da-actline"><i data-lucide="mail" style="width:16px;height:16px;color:var(--accent);"></i> Email notifications <span class="da-badge b-ok" style="margin-left:auto;">On</span></div>
+          <div class="da-actline"><i data-lucide="clock" style="width:16px;height:16px;color:var(--accent);"></i> Data retention <span style="margin-left:auto;color:var(--muted);">12 months</span></div>
+          <div class="da-actline"><i data-lucide="key-round" style="width:16px;height:16px;color:var(--accent);"></i> API keys <span class="da-badge b-warn" style="margin-left:auto;">Planned</span></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Endpoint drill-down drawer -->
+  <div class="da-drawer" id="drawer">
+    <div class="da-drawer-bg" data-close></div>
+    <div class="da-drawer-panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h3 id="dw-host">Host</h3>
+        <button class="icon-btn" data-close aria-label="Close"><i data-lucide="x"></i></button>
+      </div>
+      <p style="color:var(--muted);font-size:0.85rem;" id="dw-os">—</p>
+      <dl class="da-kv">
+        <dt>Status</dt><dd id="dw-status">—</dd>
+        <dt>Risk</dt><dd id="dw-risk">—</dd>
+        <dt>Last seen</dt><dd id="dw-seen">—</dd>
+        <dt>IP (sample)</dt><dd id="dw-ip">—</dd>
+        <dt>Open findings</dt><dd id="dw-find">—</dd>
+      </dl>
+      <div class="da-panel" style="margin-top:1.2rem;">
+        <h3>Sample findings</h3>
+        <div class="da-actline"><span class="da-badge b-high">High</span> Unpatched service <time>demo</time></div>
+        <div class="da-actline"><span class="da-badge b-med">Medium</span> Weak TLS configuration <time>demo</time></div>
+      </div>
+      <p class="tool-note" style="margin-top:1rem;"><i data-lucide="info"></i> Demo data — illustrative only.</p>
+    </div>
+  </div>
+
+  <!-- Simulated alert toast -->
+  <div class="da-alert" id="alert-toast" role="status">
+    <i data-lucide="shield-alert"></i>
+    <div><strong>New critical alert</strong><span id="alert-text">Suspicious login blocked on DC-01 (sample)</span></div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script>
+  (function () {
+    function ready(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+    ready(function () {
+      if (window.lucide) window.lucide.createIcons();
+      var $ = function (s, r) { return (r || document).querySelector(s); };
+      var $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+
+      // View switching
+      $$(".da-nav").forEach(function (b) {
+        b.addEventListener("click", function () {
+          $$(".da-nav").forEach(function (x) { x.classList.remove("active"); });
+          b.classList.add("active");
+          $$(".da-view").forEach(function (v) { v.classList.remove("active"); });
+          var el = document.getElementById("v-" + b.dataset.view);
+          if (el) el.classList.add("active");
+          if (b.dataset.view === "alerts") setTimeout(fireAlert, 700);
+        });
+      });
+
+      // Endpoints (sample data) + drill-down
+      var ENDPOINTS = [
+        { host: "SRV-07", os: "Windows Server 2022", status: "Investigating", risk: "Critical", seen: "2m", ip: "10.0.4.7", find: 4 },
+        { host: "DC-01", os: "Windows Server 2019", status: "Healthy", risk: "High", seen: "1m", ip: "10.0.1.1", find: 2 },
+        { host: "WEB-03", os: "Ubuntu 22.04", status: "Healthy", risk: "Medium", seen: "3m", ip: "10.0.2.3", find: 1 },
+        { host: "WKS-118", os: "Windows 11", status: "Healthy", risk: "Low", seen: "5m", ip: "10.0.9.118", find: 0 },
+        { host: "DB-02", os: "Debian 12", status: "Healthy", risk: "Medium", seen: "4m", ip: "10.0.3.2", find: 1 }
+      ];
+      var RB = { Critical: "b-crit", High: "b-high", Medium: "b-med", Low: "b-low" };
+      var SB = { Healthy: "b-ok", Investigating: "b-warn" };
+      var body = document.getElementById("ep-body");
+      ENDPOINTS.forEach(function (e, i) {
+        var tr = document.createElement("tr");
+        tr.className = "clickable";
+        tr.innerHTML = "<td><b style='color:#fff'>" + e.host + "</b></td><td>" + e.os +
+          "</td><td><span class='da-badge " + SB[e.status] + "'>" + e.status + "</span></td>" +
+          "<td><span class='da-badge " + RB[e.risk] + "'>" + e.risk + "</span></td><td style='color:var(--muted)'>" + e.seen + "</td>";
+        tr.addEventListener("click", function () { openDrawer(e); });
+        body.appendChild(tr);
+      });
+
+      var drawer = document.getElementById("drawer");
+      function openDrawer(e) {
+        $("#dw-host").textContent = e.host;
+        $("#dw-os").textContent = e.os;
+        $("#dw-status").textContent = e.status;
+        $("#dw-risk").textContent = e.risk;
+        $("#dw-seen").textContent = e.seen + " ago";
+        $("#dw-ip").textContent = e.ip;
+        $("#dw-find").textContent = e.find;
+        drawer.classList.add("open");
+        if (window.lucide) window.lucide.createIcons();
+      }
+      $$("[data-close]").forEach(function (x) { x.addEventListener("click", function () { drawer.classList.remove("open"); }); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") drawer.classList.remove("open"); });
+
+      // Simulated alert
+      var toast = document.getElementById("alert-toast");
+      var msgs = [
+        "Suspicious login blocked on DC-01 (sample)",
+        "Exposed RDP detected on SRV-07 (sample)",
+        "Malware signature quarantined on WKS-118 (sample)"
+      ];
+      var mi = 0;
+      function fireAlert() {
+        $("#alert-text").textContent = msgs[mi % msgs.length]; mi++;
+        toast.classList.add("show");
+        setTimeout(function () { toast.classList.remove("show"); }, 3200);
+      }
+      document.getElementById("sim-alert").addEventListener("click", function () {
+        // prepend a row too
+        var tb = document.getElementById("al-body");
+        var tr = document.createElement("tr");
+        tr.innerHTML = "<td><span class='da-badge b-crit'>Critical</span></td><td>Suspicious login blocked</td><td>DC-01</td><td>now</td>";
+        tb.insertBefore(tr, tb.firstChild);
+        var m = document.getElementById("m-findings"); if (m) m.textContent = parseInt(m.textContent, 10) + 1;
+        fireAlert();
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

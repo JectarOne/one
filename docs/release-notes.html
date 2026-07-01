@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08111F" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+
+  <title>Release Notes | JectarOne Docs</title>
+  <meta name="description" content="JectarOne release notes — what has shipped and what has changed across the website, free tools, and the Assessment Report Builder." />
+  <link rel="canonical" href="https://jectar.one/docs/release-notes.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/style.css?v=20260630" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../index.html" aria-label="JectarOne home">
+        <span class="brand-mark" aria-hidden="true"><img src="../assets/logo-mark.svg" width="24" height="24" alt="" /></span>
+        <span class="brand-copy"><strong>JectarOne</strong><small>Cybersecurity Consulting</small></span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <a href="../product.html">Product</a>
+        <a href="../tools/">Tools</a>
+        <a href="../blog/">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-login" href="tel:+212752138075">+212 752-138075</a>
+        <a class="btn btn-primary btn-sm" href="../app/">Open Report Builder</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" style="padding-bottom:32px;">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>/</span> <a href="index.html">Docs</a> <span>/</span> Release Notes</nav>
+        <h1 style="font-size:clamp(1.9rem,3.4vw,2.6rem);">Release Notes</h1>
+        <p>An honest log of what has actually shipped.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:16px;">
+      <div class="container docs-layout">
+        <aside class="docs-side">
+          <div class="ds-group">Getting Started</div>
+          <a href="getting-started.html">Getting Started</a>
+          <a aria-disabled="true">Installation <span class="soon">soon</span></a>
+          <a aria-disabled="true">Quick Start <span class="soon">soon</span></a>
+          <div class="ds-group">Platform</div>
+          <a aria-disabled="true">Dashboard <span class="soon">soon</span></a>
+          <a aria-disabled="true">Endpoints <span class="soon">soon</span></a>
+          <a aria-disabled="true">Alerts <span class="soon">soon</span></a>
+          <a aria-disabled="true">Reports <span class="soon">soon</span></a>
+          <div class="ds-group">Developers</div>
+          <a aria-disabled="true">API <span class="soon">soon</span></a>
+          <a aria-disabled="true">CLI <span class="soon">soon</span></a>
+          <div class="ds-group">Help</div>
+          <a href="faq.html">FAQ</a>
+          <a href="release-notes.html" class="active">Release Notes</a>
+        </aside>
+
+        <div class="docs-content">
+          <div class="prose">
+            <h2 style="margin-top:0;">July 2026</h2>
+            <p class="updated">Product &amp; site</p>
+            <ul>
+              <li><strong>Product page &amp; interactive demo</strong> — added a product overview and a clickable, self-guided demo (sample data).</li>
+              <li><strong>Documentation portal</strong> — this docs site went live (getting started, FAQ, release notes).</li>
+              <li><strong>Report Builder</strong> — branded PDF cover with logo and confidential marking.</li>
+            </ul>
+
+            <h2>June 2026</h2>
+            <p class="updated">Foundation</p>
+            <ul>
+              <li><strong>Assessment Report Builder</strong> — first product module: findings → live risk matrix → branded PDF, fully in-browser.</li>
+              <li><strong>Free security tools</strong> — password generator, password strength checker, security headers checker, SSL checker, website scanner.</li>
+              <li><strong>Content</strong> — eight practical cybersecurity articles for Moroccan SMEs.</li>
+              <li><strong>Security</strong> — hardened HTTP security headers (HSTS, CSP, and more) and a responsible-disclosure policy (<code>/.well-known/security.txt</code>).</li>
+              <li><strong>Website</strong> — relaunched as a Moroccan cybersecurity consultancy with services, case studies, and legal pages.</li>
+            </ul>
+
+            <div class="callout">
+              <p>We publish changes as they ship — no vanity version numbers, no unreleased features listed as done.</p>
+            </div>
+
+            <div class="docs-pager">
+              <a class="btn btn-secondary btn-sm" href="faq.html"><i data-lucide="arrow-left" aria-hidden="true"></i> FAQ</a>
+              <a class="btn btn-secondary btn-sm" href="../product.html">Product roadmap <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bottom" style="border-top:1px solid var(--line);margin-top:0;">
+      <span>© 2026 JectarOne. All rights reserved.</span>
+      <span><a href="index.html" style="color:var(--muted);">Documentation</a> · <a href="../product.html" style="color:var(--muted);">Product</a></span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="../js/main.js?v=20260630" defer></script>
+</body>
+</html>

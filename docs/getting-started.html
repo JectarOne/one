@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08111F" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+
+  <title>Getting Started | JectarOne Docs</title>
+  <meta name="description" content="Getting started with JectarOne: what the platform is today, and how to use the Assessment Report Builder to produce a branded PDF report." />
+  <link rel="canonical" href="https://jectar.one/docs/getting-started.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/style.css?v=20260630" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../index.html" aria-label="JectarOne home">
+        <span class="brand-mark" aria-hidden="true"><img src="../assets/logo-mark.svg" width="24" height="24" alt="" /></span>
+        <span class="brand-copy"><strong>JectarOne</strong><small>Cybersecurity Consulting</small></span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <a href="../product.html">Product</a>
+        <a href="../tools/">Tools</a>
+        <a href="../blog/">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-login" href="tel:+212752138075">+212 752-138075</a>
+        <a class="btn btn-primary btn-sm" href="../app/">Open Report Builder</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" style="padding-bottom:32px;">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>/</span> <a href="index.html">Docs</a> <span>/</span> Getting Started</nav>
+        <h1 style="font-size:clamp(1.9rem,3.4vw,2.6rem);">Getting Started</h1>
+        <p>What JectarOne is today, and how to produce your first report.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:16px;">
+      <div class="container docs-layout">
+        <aside class="docs-side">
+          <div class="ds-group">Getting Started</div>
+          <a href="getting-started.html" class="active">Getting Started</a>
+          <a aria-disabled="true">Installation <span class="soon">soon</span></a>
+          <a aria-disabled="true">Quick Start <span class="soon">soon</span></a>
+          <div class="ds-group">Platform</div>
+          <a aria-disabled="true">Dashboard <span class="soon">soon</span></a>
+          <a aria-disabled="true">Endpoints <span class="soon">soon</span></a>
+          <a aria-disabled="true">Alerts <span class="soon">soon</span></a>
+          <a aria-disabled="true">Reports <span class="soon">soon</span></a>
+          <div class="ds-group">Developers</div>
+          <a aria-disabled="true">API <span class="soon">soon</span></a>
+          <a aria-disabled="true">CLI <span class="soon">soon</span></a>
+          <div class="ds-group">Help</div>
+          <a href="faq.html">FAQ</a>
+          <a href="release-notes.html">Release Notes</a>
+        </aside>
+
+        <div class="docs-content">
+          <div class="prose">
+            <p>JectarOne is a Moroccan cybersecurity consultancy building a platform to turn assessment work into software. This page reflects <strong>what is actually available today</strong> — not a future roadmap dressed up as a product.</p>
+
+            <div class="doc-toc">
+              <strong>On this page</strong>
+              <ul>
+                <li><a href="#today">What's available today</a></li>
+                <li><a href="#report-builder">Using the Report Builder</a></li>
+                <li><a href="#privacy">Where your data lives</a></li>
+                <li><a href="#next">What's coming next</a></li>
+              </ul>
+            </div>
+
+            <h2 id="today">What's available today</h2>
+            <ul>
+              <li><strong>Assessment Report Builder</strong> — build a branded PDF report from findings, in your browser. <a href="../app/">Open it →</a></li>
+              <li><strong>Free security tools</strong> — password generator, strength checker, security headers / SSL / website checks. <a href="../tools/">Browse tools →</a></li>
+            </ul>
+            <p>Everything else in these docs (dashboard, endpoints, alerts, API) is in design and marked <em>soon</em>.</p>
+
+            <h2 id="report-builder">Using the Report Builder</h2>
+            <ol>
+              <li>Open the <a href="../app/">Report Builder</a>.</li>
+              <li>Fill in the <strong>engagement details</strong>: client, type, date, reference, assessor, scope.</li>
+              <li>Write an <strong>executive summary</strong> for leadership.</li>
+              <li>Click <strong>Add finding</strong> for each issue. Set severity, likelihood, and impact, then describe the finding and your recommendation.</li>
+              <li>Watch the <strong>risk matrix</strong> and <strong>severity summary</strong> update live.</li>
+              <li>Click <strong>Generate PDF report</strong> to download a branded, confidential PDF.</li>
+            </ol>
+            <p>Use <strong>Save</strong> to export the engagement as a JSON file, and <strong>Load</strong> to bring it back later. Your work also auto-saves in the browser.</p>
+
+            <h2 id="privacy">Where your data lives</h2>
+            <p>The Report Builder runs entirely in your browser. Findings and client data are <strong>never uploaded</strong> — they stay on your device (and in the PDF you download). This is deliberate: client assessment data is sensitive and should not sit on someone else's server without need.</p>
+            <div class="codeblock"><span class="c-cmt"># Nothing to install, nothing to configure.</span>
+Open https://jectar.one/app/ and start typing.</div>
+
+            <h2 id="next">What's coming next</h2>
+            <p>Saved engagements with templates, asset &amp; vulnerability tracking, and a multi-report dashboard are in design. A secure client portal (with accounts) is planned. See the <a href="../product.html">product roadmap</a> and <a href="release-notes.html">release notes</a>.</p>
+
+            <div class="docs-pager">
+              <span></span>
+              <a class="btn btn-secondary btn-sm" href="faq.html">Next: FAQ <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bottom" style="border-top:1px solid var(--line);margin-top:0;">
+      <span>© 2026 JectarOne. All rights reserved.</span>
+      <span><a href="index.html" style="color:var(--muted);">Documentation</a> · <a href="../product.html" style="color:var(--muted);">Product</a></span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="../js/main.js?v=20260630" defer></script>
+</body>
+</html>
