@@ -572,7 +572,8 @@
           </a>
         </div>
 
-        <form class="contact-form reveal" action="mailto:contact@jectar.one" method="post" enctype="text/plain">
+        <form class="contact-form reveal" id="contact-form" action="send-contact.php" method="post" novalidate>
+          <input type="text" name="website" id="cf-hp" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
           <div class="form-row">
             <label for="cf-name">Full name</label>
             <input id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
@@ -601,10 +602,11 @@
             <label for="cf-message">How can we help?</label>
             <textarea id="cf-message" name="message" rows="4" placeholder="Briefly describe your environment and goals"></textarea>
           </div>
-          <button class="btn btn-primary form-submit" type="submit">
-            Send request
+          <button class="btn btn-primary form-submit" id="cf-submit" type="submit">
+            <span class="cf-submit-label">Send request</span>
             <i data-lucide="send" aria-hidden="true"></i>
           </button>
+          <p id="cf-status" class="form-note" role="status" aria-live="polite" style="display:none;"></p>
           <p class="form-note"><i data-lucide="lock" aria-hidden="true"></i> Your details are kept confidential and used only to respond to your request.</p>
         </form>
       </div>
@@ -666,5 +668,47 @@
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
   <script src="js/main.js?v=20260630" defer></script>
+  <script>
+  (function () {
+    var form = document.getElementById("contact-form");
+    if (!form) return;
+    var statusEl = document.getElementById("cf-status");
+    var btn = document.getElementById("cf-submit");
+    var label = btn.querySelector(".cf-submit-label");
+
+    function showStatus(msg, ok) {
+      statusEl.textContent = msg;
+      statusEl.style.display = "block";
+      statusEl.style.color = ok ? "var(--success)" : "var(--danger)";
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (form.querySelector("#cf-hp").value) return; // honeypot tripped, do nothing
+      btn.disabled = true;
+      label.textContent = "Sending…";
+      statusEl.style.display = "none";
+
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json", "X-Requested-With": "fetch" }
+      })
+        .then(function (res) { return res.json().then(function (d) { return { ok: res.ok, d: d }; }); })
+        .then(function (r) {
+          var ok = r.d && r.d.ok;
+          showStatus((r.d && r.d.message) || (ok ? "Thanks — we'll be in touch shortly." : "Something went wrong. Please try again."), ok);
+          if (ok) form.reset();
+        })
+        .catch(function () {
+          showStatus("Could not send your request. Please email us at contact@jectar.one.", false);
+        })
+        .then(function () {
+          btn.disabled = false;
+          label.textContent = "Send request";
+        });
+    });
+  })();
+  </script>
 </body>
 </html>
