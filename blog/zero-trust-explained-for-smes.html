@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08111F" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+
+  <title>Zero Trust, Explained for SMEs | JectarOne</title>
+  <meta name="description" content="What Zero Trust actually means, why 'trust but verify' no longer works, and a practical, budget-realistic path SMEs can follow toward it." />
+  <link rel="canonical" href="https://jectar.one/blog/zero-trust-explained-for-smes.html" />
+  <meta property="og:title" content="Zero Trust, Explained for SMEs" />
+  <meta property="og:description" content="A practical, no-hype explanation of Zero Trust for small and medium businesses." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jectar.one/blog/zero-trust-explained-for-smes.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/style.css?v=20260630" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Zero Trust, Explained for SMEs",
+    "datePublished": "2026-07-01",
+    "author": { "@type": "Organization", "name": "JectarOne" },
+    "publisher": { "@type": "Organization", "name": "JectarOne", "logo": { "@type": "ImageObject", "url": "https://jectar.one/favicon-32x32.png" } },
+    "mainEntityOfPage": "https://jectar.one/blog/zero-trust-explained-for-smes.html"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../index.html" aria-label="JectarOne home">
+        <span class="brand-mark" aria-hidden="true"><img src="../assets/logo-mark.svg" width="24" height="24" alt="" /></span>
+        <span class="brand-copy"><strong>JectarOne</strong><small>Cybersecurity Consulting</small></span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <a href="../product.html">Product</a>
+        <a href="../tools/">Tools</a>
+        <a href="index.html">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-login" href="tel:+212752138075">+212 752-138075</a>
+        <a class="btn btn-primary btn-sm" href="../index.html#contact">Request Assessment</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article>
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>/</span> <a href="index.html">Blog</a> <span>/</span> Zero Trust</nav>
+          <p class="cat-chip" style="margin-top:1rem;"><i data-lucide="fingerprint" aria-hidden="true"></i> Architecture</p>
+          <h1>Zero Trust, Explained for SMEs</h1>
+          <p>"Zero Trust" gets thrown around as a buzzword, but the idea behind it is simple and genuinely useful — especially for businesses with remote staff, cloud apps, and no clear network perimeter anymore.</p>
+          <div class="article-meta" style="margin-top:1.2rem;">
+            <span>1 July 2026</span><span class="dot"></span><span>8 min read</span><span class="dot"></span><span>By JectarOne</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="prose article-body">
+            <h2>The old model: trust the network</h2>
+            <p>Traditional security assumed that anything inside the office network was safe, and anything outside it was not. You built a strong perimeter (firewall, VPN) and trusted whatever got past it. That assumption breaks down once staff work from home, data lives in the cloud, and phones and laptops move between networks all day.</p>
+
+            <h2>The Zero Trust idea, in one sentence</h2>
+            <p><strong>Never trust automatically, based on network location — always verify, every time, for every request.</strong> A request from inside the office is checked the same way as one from a coffee shop. Identity and device health matter more than which network you're on.</p>
+
+            <h2>The core principles</h2>
+            <ul>
+              <li><strong>Verify explicitly.</strong> Authenticate and authorize based on all available signals — user, device, location, and data sensitivity — not just a password.</li>
+              <li><strong>Use least privilege.</strong> Give people and systems only the access they need, for as long as they need it.</li>
+              <li><strong>Assume breach.</strong> Design as if an attacker is already somewhere in the network, and limit how far they could move.</li>
+            </ul>
+
+            <h2>What this looks like in practice for an SME</h2>
+            <ul>
+              <li><strong>MFA everywhere</strong> — email, VPN, admin panels, cloud apps. Not just for admins.</li>
+              <li><strong>Device checks</strong> — require devices to be patched and have security software before they can reach sensitive systems.</li>
+              <li><strong>Segmented networks</strong> — staff, guest Wi-Fi, and critical systems (like payment processing) don't share a flat network.</li>
+              <li><strong>Least-privilege access</strong> — review who has admin rights and access to sensitive folders; remove what isn't needed.</li>
+              <li><strong>Conditional access</strong> — if your identity provider (e.g. Microsoft 365) supports it, block risky sign-ins (new country, impossible travel, unmanaged device).</li>
+              <li><strong>Logging</strong> — keep enough logs to reconstruct what happened if something goes wrong.</li>
+            </ul>
+
+            <div class="callout">
+              <p><strong>You don't need to buy a "Zero Trust product."</strong> It's a set of principles you apply to what you already have — most SMEs can meaningfully move toward Zero Trust using settings already included in Microsoft 365, their firewall, and their identity provider.</p>
+            </div>
+
+            <h2>Where to start</h2>
+            <p>Start with identity: enforce MFA everywhere, and review who has standing admin access. Then look at network segmentation and device health. You don't need to do everything at once — each step reduces real risk on its own.</p>
+
+            <h2>Not sure how exposed you are today?</h2>
+            <p>A security assessment maps your current access model against these principles and gives you a realistic, prioritized path forward.</p>
+
+            <div class="article-cta">
+              <a class="btn btn-primary" href="../index.html#contact">Request a Security Assessment <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+              <a class="btn btn-secondary" href="index.html" style="margin-left:0.6rem;">Back to blog <i data-lucide="arrow-left" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html" aria-label="JectarOne home">
+          <span class="brand-mark" aria-hidden="true"><img src="../assets/logo-mark.svg" width="24" height="24" alt="" /></span>
+          <span class="brand-copy"><strong>JectarOne</strong><small>Cybersecurity Consulting</small></span>
+        </a>
+        <p>A Moroccan cybersecurity consultancy helping small and medium-sized businesses understand and improve their security posture.</p>
+        <div class="social-links" aria-label="Social links">
+          <a href="https://www.linkedin.com/company/jectarone" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Company</h3>
+        <a href="../about.html">About</a>
+        <a href="../index.html#process">Process</a>
+        <a href="../case-studies.html">Case Studies</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="footer-column">
+        <h3>Services</h3>
+        <a href="../services.html#security-assessment">Security Assessment</a>
+        <a href="../services.html#vulnerability-assessment">Vulnerability Assessment</a>
+        <a href="../services.html#penetration-testing">Penetration Testing</a>
+        <a href="../services.html#compliance-readiness">Compliance Readiness</a>
+      </div>
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <a href="index.html">Blog</a>
+        <a href="../tools/">Free Tools</a>
+        <a href="../index.html#faq">FAQ</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 JectarOne. All rights reserved.</span>
+      <span>Cybersecurity consulting for Moroccan businesses.</span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="../js/main.js?v=20260630" defer></script>
+</body>
+</html>

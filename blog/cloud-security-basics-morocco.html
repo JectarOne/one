@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08111F" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+
+  <title>Cloud Security Basics for Growing Businesses | JectarOne</title>
+  <meta name="description" content="Practical cloud security for SMEs moving to AWS, Azure, or Google Cloud: shared responsibility, common misconfigurations, and where to focus first." />
+  <link rel="canonical" href="https://jectar.one/blog/cloud-security-basics-morocco.html" />
+  <meta property="og:title" content="Cloud Security Basics for Growing Businesses" />
+  <meta property="og:description" content="Practical cloud security fundamentals for SMEs." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://jectar.one/blog/cloud-security-basics-morocco.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/style.css?v=20260630" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Cloud Security Basics for Growing Businesses",
+    "datePublished": "2026-07-01",
+    "author": { "@type": "Organization", "name": "JectarOne" },
+    "publisher": { "@type": "Organization", "name": "JectarOne", "logo": { "@type": "ImageObject", "url": "https://jectar.one/favicon-32x32.png" } },
+    "mainEntityOfPage": "https://jectar.one/blog/cloud-security-basics-morocco.html"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../index.html" aria-label="JectarOne home">
+        <span class="brand-mark" aria-hidden="true"><img src="../assets/logo-mark.svg" width="24" height="24" alt="" /></span>
+        <span class="brand-copy"><strong>JectarOne</strong><small>Cybersecurity Consulting</small></span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="../about.html">About</a>
+        <a href="../services.html">Services</a>
+        <a href="../product.html">Product</a>
+        <a href="../tools/">Tools</a>
+        <a href="index.html">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-login" href="tel:+212752138075">+212 752-138075</a>
+        <a class="btn btn-primary btn-sm" href="../index.html#contact">Request Assessment</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article>
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>/</span> <a href="index.html">Blog</a> <span>/</span> Cloud Security</nav>
+          <p class="cat-chip" style="margin-top:1rem;"><i data-lucide="cloud-cog" aria-hidden="true"></i> Cloud Security</p>
+          <h1>Cloud Security Basics for Growing Businesses</h1>
+          <p>Moving to the cloud does not automatically make you secure — it changes who is responsible for what. Most cloud incidents we see are misconfigurations, not sophisticated attacks.</p>
+          <div class="article-meta" style="margin-top:1.2rem;">
+            <span>1 July 2026</span><span class="dot"></span><span>8 min read</span><span class="dot"></span><span>By JectarOne</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="prose article-body">
+            <h2>Understand the shared responsibility model</h2>
+            <p>Whichever provider you use (AWS, Azure, Google Cloud), the provider secures the underlying infrastructure — but <strong>you remain responsible for how you configure and use it</strong>: access control, data classification, network settings, and application security. Most breaches in the cloud trace back to the customer side of that line.</p>
+
+            <h2>The most common cloud mistakes we find</h2>
+            <ul>
+              <li><strong>Public storage buckets.</strong> S3 buckets, blob storage, or file shares left open to the internet — often by accident during setup.</li>
+              <li><strong>Overly broad permissions.</strong> Service accounts and users with far more access than their job requires.</li>
+              <li><strong>No MFA on cloud console access.</strong> The console that controls everything is protected by a password alone.</li>
+              <li><strong>Default security groups / firewall rules.</strong> Ports left open (databases, remote access) that should only be reachable internally.</li>
+              <li><strong>No logging or alerting.</strong> Activity logs exist but nobody reviews them or gets notified of risky changes.</li>
+              <li><strong>Secrets in code.</strong> API keys and passwords committed to repositories or left in configuration files.</li>
+            </ul>
+
+            <h2>A practical starting checklist</h2>
+            <ul>
+              <li>Enable MFA on every account with console or admin access.</li>
+              <li>Review storage buckets and shares for public access — restrict to what's actually needed.</li>
+              <li>Apply least privilege: scope permissions to specific resources and actions, not broad admin roles.</li>
+              <li>Turn on your provider's security/audit logging (e.g. CloudTrail, Azure Monitor, Cloud Audit Logs) and review it periodically.</li>
+              <li>Use secrets management (a vault or environment-based secrets) instead of hardcoding credentials.</li>
+              <li>Patch and update managed services, containers, and VM images regularly.</li>
+              <li>Tag and track what's actually running — unused resources are unmanaged risk.</li>
+            </ul>
+
+            <div class="callout">
+              <p><strong>Free check:</strong> use our <a href="../tools/security-headers-checker.html">Security Headers Checker</a> and <a href="../tools/ssl-checker.html">SSL Certificate Checker</a> to spot-check any public-facing site or app you host in the cloud.</p>
+            </div>
+
+            <h2>Get an independent look</h2>
+            <p>A cloud configuration review as part of a vulnerability assessment finds exposed storage, excessive permissions, and missing logging before an attacker finds them for you.</p>
+
+            <div class="article-cta">
+              <a class="btn btn-primary" href="../services.html#vulnerability-assessment">See Vulnerability Assessment <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+              <a class="btn btn-secondary" href="index.html" style="margin-left:0.6rem;">Back to blog <i data-lucide="arrow-left" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html" aria-label="JectarOne home">
+          <span class="brand-mark" aria-hidden="true"><img src="../assets/logo-mark.svg" width="24" height="24" alt="" /></span>
+          <span class="brand-copy"><strong>JectarOne</strong><small>Cybersecurity Consulting</small></span>
+        </a>
+        <p>A Moroccan cybersecurity consultancy helping small and medium-sized businesses understand and improve their security posture.</p>
+        <div class="social-links" aria-label="Social links">
+          <a href="https://www.linkedin.com/company/jectarone" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Company</h3>
+        <a href="../about.html">About</a>
+        <a href="../index.html#process">Process</a>
+        <a href="../case-studies.html">Case Studies</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="footer-column">
+        <h3>Services</h3>
+        <a href="../services.html#security-assessment">Security Assessment</a>
+        <a href="../services.html#vulnerability-assessment">Vulnerability Assessment</a>
+        <a href="../services.html#penetration-testing">Penetration Testing</a>
+        <a href="../services.html#compliance-readiness">Compliance Readiness</a>
+      </div>
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <a href="index.html">Blog</a>
+        <a href="../tools/">Free Tools</a>
+        <a href="../index.html#faq">FAQ</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 JectarOne. All rights reserved.</span>
+      <span>Cybersecurity consulting for Moroccan businesses.</span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="../js/main.js?v=20260630" defer></script>
+</body>
+</html>

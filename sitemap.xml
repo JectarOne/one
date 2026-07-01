@@ -170,6 +170,48 @@
   </url>
 
   <url>
+    <loc>https://jectar.one/blog/zero-trust-explained-for-smes.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jectar.one/blog/cloud-security-basics-morocco.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jectar.one/blog/windows-server-hardening-checklist.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jectar.one/blog/active-directory-security-basics.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jectar.one/blog/vulnerability-management-vs-one-off-scans.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://jectar.one/blog/moroccan-cybersecurity-regulations-guide.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://jectar.one/privacy.html</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>yearly</changefreq>
