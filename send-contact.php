@@ -3,6 +3,19 @@ declare(strict_types=1);
 
 // JectarOne contact form handler. Sends the submission to contact@jectar.one.
 // Works with JS (fetch, returns JSON) and without JS (redirects back to the page).
+//
+// Uses authenticated SMTP (via PHPMailer) when mail-config.php is present —
+// this is far more reliable on shared hosting than PHP's mail(), which many
+// hosts silently disable or which Exim can reject/drop for unauthenticated
+// local submissions. Falls back to mail() if no config file exists yet.
+// See mail-config.example.php for setup instructions.
+
+$LOG_FILE = __DIR__ . '/contact-form.log';
+
+function jo_log(string $line): void {
+    global $LOG_FILE;
+    @file_put_contents($LOG_FILE, '[' . date('Y-m-d H:i:s') . '] ' . $line . "\n", FILE_APPEND | LOCK_EX);
+}
 
 function jo_is_ajax(): bool {
     $accept = $_SERVER['HTTP_ACCEPT'] ?? '';
@@ -76,7 +89,6 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     jo_respond(false, 'Please enter a valid email address.');
 }
 
-$to = 'contact@jectar.one';
 $subject = 'New assessment request from ' . $name;
 
 $bodyLines = [
@@ -95,14 +107,59 @@ $bodyLines = [
 ];
 $body = implode("\n", $bodyLines);
 
-$headers = implode("\r\n", [
-    'From: JectarOne Website <no-reply@jectar.one>',
-    'Reply-To: ' . $email,
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
-]);
+$configPath = __DIR__ . '/mail-config.php';
+$sent = false;
+$method = 'none';
 
-$sent = @mail($to, $subject, $body, $headers);
+if (is_file($configPath)) {
+    // Preferred path: authenticated SMTP via PHPMailer.
+    $method = 'smtp';
+    $cfg = require $configPath;
+    require __DIR__ . '/vendor/phpmailer/Exception.php';
+    require __DIR__ . '/vendor/phpmailer/PHPMailer.php';
+    require __DIR__ . '/vendor/phpmailer/SMTP.php';
+
+    try {
+        $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+        $mail->isSMTP();
+        $mail->Host = $cfg['smtp_host'];
+        $mail->Port = $cfg['smtp_port'];
+        $mail->SMTPAuth = true;
+        $mail->Username = $cfg['smtp_username'];
+        $mail->Password = $cfg['smtp_password'];
+        $mail->SMTPSecure = $cfg['smtp_secure']; // 'ssl' or 'tls'
+        $mail->CharSet = 'UTF-8';
+
+        $mail->setFrom($cfg['from_email'], $cfg['from_name']);
+        $mail->addAddress($cfg['to_email']);
+        $mail->addReplyTo($email, $name);
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->isHTML(false);
+
+        $mail->send();
+        $sent = true;
+    } catch (\Throwable $e) {
+        jo_log('SMTP send FAILED: ' . $e->getMessage());
+        $sent = false;
+    }
+} else {
+    // Fallback: raw mail(). Less reliable on shared hosting, but works with
+    // zero configuration if the host permits it. From uses the real mailbox
+    // (contact@jectar.one) rather than an address that may not exist, since
+    // many mail servers reject/drop mail claiming to be from a nonexistent
+    // local address.
+    $method = 'mail()';
+    $headers = implode("\r\n", [
+        'From: JectarOne Website <contact@jectar.one>',
+        'Reply-To: ' . $email,
+        'MIME-Version: 1.0',
+        'Content-Type: text/plain; charset=UTF-8',
+    ]);
+    $sent = @mail('contact@jectar.one', $subject, $body, $headers);
+}
+
+jo_log(($sent ? 'OK' : 'FAILED') . " via {$method} — from={$email} name=\"{$name}\" ip={$ip}");
 
 if ($sent) {
     jo_respond(true, "Thanks — we've received your request and will be in touch shortly.");

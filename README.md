@@ -74,6 +74,17 @@ npx serve -l 4321 .
 
 ---
 
+## Contact form
+
+The contact form (`index.html#contact`) posts to `send-contact.php`, which emails `contact@jectar.one`.
+
+- **Preferred:** authenticated SMTP via a self-hosted PHPMailer (`vendor/phpmailer/`). Copy `mail-config.example.php` → `mail-config.php` (gitignored — holds a real mailbox password) and fill in the real SMTP host/port/credentials from cPanel → Email Accounts → Connect Devices.
+- **Fallback:** if `mail-config.php` doesn't exist, it falls back to PHP's `mail()` — works with zero setup, but is unreliable on shared hosting (many hosts disable it or silently drop unauthenticated local mail).
+- Every attempt (success or failure) is logged to `contact-form.log` (gitignored) — check it first if a submission doesn't arrive.
+- Includes a honeypot field and a 5-per-10-minutes-per-IP rate limit.
+
+---
+
 ## Brand
 
 Colors, typography, voice, and logo usage are documented in [docs/BRAND-GUIDELINES.md](docs/BRAND-GUIDELINES.md).

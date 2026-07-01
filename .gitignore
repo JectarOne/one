@@ -16,5 +16,8 @@ fix2.md
 jecjec.md
 *.original.md
 
+# Secrets — never commit real mailbox credentials
+mail-config.php
+
 # Unrelated demo
 demo/
