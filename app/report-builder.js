@@ -14,6 +14,12 @@
   var findingsEl = $("#findings");
   var tpl = $("#tpl-finding");
 
+  // Preload brand images for the PDF (CSP: same-origin).
+  var LOGO = { avatar: new Image(), mark: new Image() };
+  LOGO.avatar.src = "../assets/logo-avatar-400.png";
+  LOGO.mark.src = "../assets/logo-mark-512.png";
+  function imgReady(im) { return im && im.complete && im.naturalWidth > 0; }
+
   /* ---------- Findings ---------- */
   function addFinding(data) {
     var node = tpl.content.firstElementChild.cloneNode(true);
@@ -185,15 +191,21 @@
     doc.setFillColor(8, 17, 31); doc.rect(0, 0, W, H, "F");
     doc.setDrawColor(56, 189, 248); doc.setLineWidth(2);
     doc.line(M, 120, M + 90, 120);
-    drawShield(doc, W / 2, 250, 90);
+    if (imgReady(LOGO.avatar)) doc.addImage(LOGO.avatar, "PNG", W / 2 - 46, 200, 92, 92);
+    else drawShield(doc, W / 2, 250, 90);
     doc.setTextColor(248, 250, 252);
     doc.setFont("helvetica", "bold"); doc.setFontSize(30);
     doc.text("JectarOne", W / 2, 360, { align: "center" });
     doc.setTextColor(56, 189, 248); doc.setFontSize(11);
     doc.text("C Y B E R S E C U R I T Y   C O N S U L T I N G", W / 2, 380, { align: "center" });
 
+    // classification pill
+    doc.setFillColor(37, 99, 235); doc.roundedRect(W / 2 - 52, 414, 104, 22, 11, 11, "F");
+    doc.setTextColor(255, 255, 255); doc.setFont("helvetica", "bold"); doc.setFontSize(9);
+    doc.text("CONFIDENTIAL", W / 2, 429, { align: "center" });
+
     doc.setTextColor(248, 250, 252); doc.setFontSize(22);
-    doc.text((s.type || "Security Assessment") + " Report", W / 2, 460, { align: "center" });
+    doc.text((s.type || "Security Assessment") + " Report", W / 2, 476, { align: "center" });
     doc.setTextColor && doc.setTextColor(148, 163, 184); doc.setFontSize(13); doc.setFont("helvetica", "normal");
     doc.text("Prepared for: " + (s.client || "—"), W / 2, 490, { align: "center" });
 
