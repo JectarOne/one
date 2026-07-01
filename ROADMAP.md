@@ -16,9 +16,11 @@ Per the Execution Guide, no code until analysis + architecture are approved.
 
 **Blocking decisions (ANALYSIS §7):** product scope (Client Portal vs real EDR) + hosting/stack.
 
-Proposed order once unblocked (guide's sprint model, applied to the realistic **Client Portal**):
-- [ ] Phase 3 — Architecture: schema, API, auth flow, RBAC, multi-tenancy, deployment (approve before code)
-- [ ] Sprint 1 — Auth, Organizations, Multi-tenancy, User Management
+**Decisions made (2026-07-01):** product = **Client Portal**; hosting = **new app hosting** (Next.js + Postgres + Vercel, separate from this static repo). The portal lives in its **own repo/dir**: `../jectarone-portal` (Next.js 15 + Prisma + JWT auth).
+
+Order (guide's sprint model, applied to the realistic **Client Portal**):
+- [x] Phase 3 — Architecture (see `jectarone-portal/ARCHITECTURE.md`)
+- [x] Sprint 1 — Auth, Organizations, Multi-tenancy, User Management ✅ built + verified (commit 0eec0f9 in the portal repo; not yet pushed to a remote)
 - [ ] Sprint 2 — RBAC, Dashboard shell, Navigation, Layout
 - [ ] Sprint 3 — Client assessments & findings (grows the existing Report Builder into a persisted, multi-user tool)
 - [ ] Sprint 4 — Reports, risk matrix, exports
