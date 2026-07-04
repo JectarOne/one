@@ -1,6 +1,10 @@
 <?php
-// Copy this file to mail-config.php (same directory) and fill in real values.
-// mail-config.php is gitignored — it holds a real password and must NEVER be committed.
+// Copy this file to mail-config.php and fill in real values.
+// PREFERRED location: OUTSIDE the web root, in the account home's jo-private/
+// directory (e.g. /home/<user>/jo-private/mail-config.php). send-contact.php
+// looks there first, then falls back to this directory for legacy installs.
+// mail-config.php is gitignored — it holds a real password and must NEVER be
+// committed OR left web-servable.
 //
 // These are standard cPanel mailbox SMTP settings. In cPanel, go to
 // Email Accounts -> (contact@jectar.one) -> Connect Devices to see the

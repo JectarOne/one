@@ -115,7 +115,14 @@ $bodyLines = [
 ];
 $body = implode("\n", $bodyLines);
 
-$configPath = __DIR__ . '/mail-config.php';
+// Prefer the SMTP credentials from OUTSIDE the web root (jo-private/), so a PHP
+// outage can never expose the mailbox password as source. Fall back to the
+// legacy in-root location so existing deployments keep sending mail until the
+// file is migrated. See mail-config.example.php.
+$configPath = $JO_PRIVATE_DIR . '/mail-config.php';
+if (!is_file($configPath)) {
+    $configPath = __DIR__ . '/mail-config.php';
+}
 $sent = false;
 $method = 'none';
 
