@@ -5,8 +5,20 @@
 
 DirectoryIndex index.html
 
-# Prevent directory listings
+# Prevent directory listings (belt-and-suspenders: blank index.html files are
+# also committed to each asset dir in case AllowOverride is limited on the host).
 Options -Indexes
+IndexIgnore *
+
+# Block access to sensitive source, config, log and dotfiles. These must never
+# be web-servable. NOTE: relies on AllowOverride permitting these directives —
+# confirm with `curl -I https://jectar.one/CHANGELOG.md` returning 403.
+<FilesMatch "(?i)\.(log|md|sql|bak|old|ini|sh|yml|yaml|lock|dist|example|env|cfg|conf|composer)$">
+    Require all denied
+</FilesMatch>
+<FilesMatch "^(\.htaccess|\.htpasswd|\.gitignore|\.cpanel\.yml|package(-lock)?\.json|playwright\.config\..*)$">
+    Require all denied
+</FilesMatch>
 
 # Enforce HTTPS
 <IfModule mod_rewrite.c>
