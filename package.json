@@ -1,0 +1,32 @@
+{
+  "name": "jecai",
+  "version": "1.0.0",
+  "description": "> Moroccan cybersecurity consultancy helping small and medium-sized businesses understand and improve their security posture.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "npm run test:security && npm run test:ui",
+    "test:security": "node --test tests/security.test.mjs",
+    "test:ui": "playwright test",
+    "build:favicon": "node tests/../scripts/build-favicon.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JectarOne/one.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JectarOne/one/issues"
+  },
+  "homepage": "https://github.com/JectarOne/one#readme",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.61.1",
+    "sharp": "^0.35.3"
+  }
+}
