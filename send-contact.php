@@ -10,7 +10,15 @@ declare(strict_types=1);
 // local submissions. Falls back to mail() if no config file exists yet.
 // See mail-config.example.php for setup instructions.
 
-$LOG_FILE = __DIR__ . '/contact-form.log';
+// Store the log OUTSIDE the web root so submissions (email, name, IP) can never
+// be downloaded over HTTP. On cPanel, __DIR__ is public_html, so dirname(__DIR__)
+// is the account home — one level above anything the web server will serve.
+// Overridable via env for non-standard layouts.
+$JO_PRIVATE_DIR = getenv('JO_PRIVATE_DIR') ?: (dirname(__DIR__) . '/jo-private');
+if (!is_dir($JO_PRIVATE_DIR)) {
+    @mkdir($JO_PRIVATE_DIR, 0700, true);
+}
+$LOG_FILE = $JO_PRIVATE_DIR . '/contact-form.log';
 
 function jo_log(string $line): void {
     global $LOG_FILE;
