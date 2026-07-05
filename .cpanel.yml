@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/xqkgqqvvzf/public_html
-    - /bin/rsync -av --exclude='.git*' --exclude='*.md' --exclude='node_modules' --exclude='tests' --exclude='test-results' --exclude='playwright-report' --exclude='package.json' --exclude='package-lock.json' --exclude='playwright.config.*' --exclude='mail-config.php' --exclude='*.log' --exclude='New folder' ./ $DEPLOYPATH
+    - export DEPLOYPATH=/home/xqkgqqvvzf/jectar.one/
+    - /bin/cp -R * $DEPLOYPATH
