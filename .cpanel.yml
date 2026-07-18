@@ -6,6 +6,11 @@ deployment:
     # Additive by design — no --delete, to protect server-only files
     # (mail-config.php, ACME challenges). Retired paths are removed
     # explicitly below.
-    - /usr/bin/rsync -a --exclude='.git/' --exclude='node_modules/' --exclude='demo/' --exclude='test-results/' --exclude='.well-known/' --exclude='mail-config.php' ./ "$DEPLOYPATH"
+    # --chmod forces web-safe perms (dirs 755, files 644): without it,
+    # rsync -a would copy the git checkout's private 700 dir perms onto
+    # the docroot and LiteSpeed's user could no longer read it -> 404.
+    - /usr/bin/rsync -a --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r --exclude='.git/' --exclude='node_modules/' --exclude='demo/' --exclude='test-results/' --exclude='.well-known/' --exclude='mail-config.php' ./ "$DEPLOYPATH"
     # Remove retired legacy directories (rsync above never deletes).
     - /bin/rm -rf "${DEPLOYPATH}wp-theme"
+    # Belt-and-suspenders: guarantee the docroot itself stays traversable.
+    - /bin/chmod 755 "$DEPLOYPATH"
