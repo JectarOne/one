@@ -2,4 +2,10 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/xqkgqqvvzf/jectar.one/
-    - /bin/cp -R * $DEPLOYPATH
+    # rsync (not `cp -R *`) so dotfiles like .htaccess actually deploy.
+    # Additive by design — no --delete, to protect server-only files
+    # (mail-config.php, ACME challenges). Retired paths are removed
+    # explicitly below.
+    - /usr/bin/rsync -a --exclude='.git/' --exclude='node_modules/' --exclude='demo/' --exclude='test-results/' --exclude='.well-known/' --exclude='mail-config.php' ./ "$DEPLOYPATH"
+    # Remove retired legacy directories (rsync above never deletes).
+    - /bin/rm -rf "${DEPLOYPATH}wp-theme"
