@@ -3,4 +3,15 @@ Allow: /
 Disallow: /app/
 Disallow: /tools/api/
 
+# Retired legacy paths (WordPress / demo) — server returns HTTP 410 Gone
+Disallow: /wp-theme/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /demo/
+Disallow: /category/
+Disallow: /tag/
+Disallow: /author/
+Disallow: /feed/
+
 Sitemap: https://jectar.one/sitemap.xml
