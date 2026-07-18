@@ -20,22 +20,23 @@ IndexIgnore *
     Require all denied
 </FilesMatch>
 
-# ── Legacy URL retirement (SEO cleanup) ─────────────
-# The site is now a cybersecurity consultancy. Retire every legacy
-# WordPress / AI-marketing URL with HTTP 410 Gone so Google drops them
-# from the index instead of treating them as soft-404s. None of these
-# paths have a cybersecurity equivalent, so 410 (not 301) is correct.
-<IfModule mod_alias.c>
-    RedirectMatch 410 "(?i)^/wp-theme(/.*)?$"
-    RedirectMatch 410 "(?i)^/demo(/.*)?$"
-    RedirectMatch 410 "(?i)^/(wp-admin|wp-includes|wp-content)(/.*)?$"
-    RedirectMatch 410 "(?i)^/(wp-login\.php|xmlrpc\.php|wp-signup\.php)$"
-    RedirectMatch 410 "(?i)^/(category|tag|author|feed)(/.*)?$"
-</IfModule>
-
-# Enforce HTTPS
 <IfModule mod_rewrite.c>
     RewriteEngine On
+
+    # ── Legacy URL retirement (SEO cleanup) ─────────────
+    # Site is now a cybersecurity consultancy. Retire every legacy
+    # WordPress / AI-marketing URL with HTTP 410 Gone so Google drops
+    # them from the index instead of treating them as soft-404s. None
+    # of these paths have a cybersecurity equivalent, so 410 (not 301)
+    # is correct. [G] is used (not mod_alias RedirectMatch) for reliable
+    # handling under LiteSpeed.
+    RewriteRule ^wp-theme(/.*)?$ - [G,L]
+    RewriteRule ^demo(/.*)?$ - [G,L]
+    RewriteRule ^(wp-admin|wp-includes|wp-content)(/.*)?$ - [G,L]
+    RewriteRule ^(wp-login\.php|xmlrpc\.php|wp-signup\.php)$ - [G,L]
+    RewriteRule ^(category|tag|author|feed)(/.*)?$ - [G,L]
+
+    # Enforce HTTPS
     RewriteCond %{HTTPS} !=on
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
