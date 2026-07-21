@@ -25,9 +25,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
-  <link rel="stylesheet" href="../css/style.css?v=20260630" />
+  <link rel="stylesheet" href="../css/style.css?v=20260721" />
 
   <script type="application/ld+json">
   {
@@ -47,7 +48,7 @@
   <header class="site-header" id="top">
     <nav class="nav" aria-label="Main navigation">
       <a class="brand" href="../index.html" aria-label="JectarOne home">
-        <span class="brand-mark" aria-hidden="true"><img src="../assets/logo-mark.svg" width="24" height="24" alt="" /></span>
+        <span class="brand-mark" aria-hidden="true"><img loading="lazy" src="../assets/logo-mark.svg" width="24" height="24" alt="" /></span>
         <span class="brand-copy"><strong>JectarOne</strong><small>Cybersecurity Consulting</small></span>
       </a>
       <div class="nav-links" id="nav-links">
@@ -61,6 +62,7 @@
       <div class="nav-actions">
         <a class="nav-login" href="tel:+212752138075">+212 752-138075</a>
         <a class="btn btn-primary btn-sm" href="../index.html#contact">Request Assessment</a>
+        <button class="lang-toggle" type="button" lang="ar" title="Arabic (RTL) coming soon" aria-label="Arabic version — coming soon" disabled>ع</button>
         <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
           <span></span><span></span><span></span>
         </button>
@@ -81,7 +83,8 @@
 
     <section class="section">
       <div class="container">
-        <div class="feature-grid">
+        <div class="blog-filters" id="blog-filters" role="group" aria-label="Filter articles by category"></div>
+        <div class="feature-grid" id="blog-grid">
 
           <a class="feature-card article-card reveal" href="top-security-mistakes-moroccan-smes.html">
             <p class="cat-chip"><i data-lucide="shield-alert" aria-hidden="true"></i> SME Security</p>
@@ -197,6 +200,21 @@
 
         </div>
 
+        <section class="newsletter reveal" aria-labelledby="newsletter-title">
+          <div class="newsletter-inner">
+            <i data-lucide="mail-check" aria-hidden="true"></i>
+            <h2 id="newsletter-title">Get practical security tips in your inbox</h2>
+            <p>Occasional, no-spam guidance for Moroccan SMEs. Unsubscribe anytime.</p>
+            <!-- Placeholder: connect to Mailchimp / ConvertKit form action + hidden fields before going live. -->
+            <form class="newsletter-form" action="#" method="post" data-newsletter novalidate>
+              <label class="sr-only" for="nl-email">Email address</label>
+              <input id="nl-email" name="email" type="email" required placeholder="you@company.com" autocomplete="email" />
+              <button class="btn btn-primary" type="submit">Subscribe <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            </form>
+            <p class="newsletter-note" id="nl-status" role="status" aria-live="polite">No newsletter provider is connected yet — this is a placeholder form.</p>
+          </div>
+        </section>
+
         <div class="industry-card industry-cta reveal" style="max-width:760px;margin:3rem auto 0;text-align:center;">
           <h3 style="font-size:1.4rem;">Have a question about your own setup?</h3>
           <p style="margin-inline:auto;">We're happy to give a straight answer. Reach out and tell us what you're trying to protect.</p>
@@ -210,7 +228,7 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <a class="brand" href="../index.html" aria-label="JectarOne home">
-          <span class="brand-mark" aria-hidden="true"><img src="../assets/logo-mark.svg" width="24" height="24" alt="" /></span>
+          <span class="brand-mark" aria-hidden="true"><img loading="lazy" src="../assets/logo-mark.svg" width="24" height="24" alt="" /></span>
           <span class="brand-copy"><strong>JectarOne</strong><small>Cybersecurity Consulting</small></span>
         </a>
         <p>A Moroccan cybersecurity consultancy helping small and medium-sized businesses understand and improve their security posture.</p>
@@ -245,11 +263,11 @@
     </div>
     <div class="container footer-bottom">
       <span>© 2026 JectarOne. All rights reserved.</span>
-      <span>Cybersecurity consulting for Moroccan businesses.</span>
+      <span>Serving Casablanca, Rabat, Marrakech, Tangier &amp; businesses across Morocco.</span>
     </div>
   </footer>
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-  <script src="../js/main.js?v=20260630" defer></script>
+  <script src="../js/main.js?v=20260721" defer></script>
 </body>
 </html>

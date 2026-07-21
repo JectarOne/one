@@ -1680,8 +1680,9 @@ select:-webkit-autofill {
 /* ---------- Industries ---------- */
 .industry-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1rem;
+  align-items: start;
 }
 
 .industry-card {
@@ -1719,6 +1720,462 @@ select:-webkit-autofill {
 
 .industry-cta .card-link {
   margin-top: 0.8rem;
+}
+
+.industry-card .pain-list {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.industry-card .pain-list li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.industry-card .pain-list li svg {
+  width: 15px;
+  height: 15px;
+  color: var(--warning);
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+
+.industry-card .compliance-note {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  margin-top: 0.9rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.industry-card .compliance-note svg {
+  width: 15px;
+  height: 15px;
+  color: var(--primary);
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.industry-card .compliance-note strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.industry-card .card-link {
+  margin-top: 1rem;
+}
+
+/* ---------- Case study sample template ---------- */
+.cs-template {
+  padding: 1.8rem;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-lg);
+  background: rgba(15, 23, 42, 0.5);
+}
+
+.cs-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.cs-metric {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(6, 182, 212, 0.05);
+  text-align: center;
+}
+
+.cs-metric strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: var(--accent);
+}
+
+.cs-metric span {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.cs-quote {
+  margin-top: 1.6rem;
+  padding: 1.2rem 1.2rem 1.2rem 1.4rem;
+  border-left: 3px solid var(--primary);
+  border-radius: 12px;
+  background: rgba(67, 56, 202, 0.08);
+  color: var(--muted);
+}
+
+.cs-quote > svg {
+  width: 22px;
+  height: 22px;
+  color: var(--primary);
+  opacity: 0.6;
+}
+
+.cs-quote p {
+  margin-top: 0.4rem;
+  font-style: italic;
+  color: rgba(248, 250, 252, 0.86);
+}
+
+.cs-quote footer {
+  margin-top: 0.7rem;
+  font-size: 0.85rem;
+}
+
+.cs-quote footer span {
+  color: var(--muted);
+}
+
+/* ---------- Multi-step contact form ---------- */
+.form-progress {
+  display: none;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.16);
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.form-progress-bar {
+  display: block;
+  height: 100%;
+  width: 20%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 999px;
+  transition: width 0.3s var(--ease);
+}
+
+.form-step-label {
+  display: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+}
+
+.form-nav {
+  display: none;
+  gap: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+.form-nav .btn {
+  flex: 1;
+  justify-content: center;
+}
+
+.contact-form.is-stepped .form-progress,
+.contact-form.is-stepped .form-step-label {
+  display: block;
+}
+
+.contact-form.is-stepped .form-nav {
+  display: flex;
+}
+
+.contact-form.is-stepped .form-step {
+  display: none;
+}
+
+.contact-form.is-stepped .form-step.is-active {
+  display: block;
+}
+
+.contact-form.is-stepped .form-submit {
+  display: none;
+}
+
+.contact-form.is-stepped.at-last .form-submit {
+  display: flex;
+}
+
+.contact-form.is-stepped.at-last #cf-next {
+  display: none;
+}
+
+.contact-form.is-stepped.at-first #cf-back {
+  visibility: hidden;
+}
+
+/* ---------- Accessibility helper ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Language toggle placeholder (Arabic RTL — future) ---------- */
+.lang-toggle {
+  display: inline-grid;
+  place-items: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(148, 163, 184, 0.05);
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+.lang-toggle[disabled] {
+  opacity: 0.7;
+}
+
+/* ---------- Blog category filters ---------- */
+.blog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.6rem;
+}
+
+.blog-filter {
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(148, 163, 184, 0.05);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.blog-filter:hover {
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+
+.blog-filter.is-active {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ---------- Newsletter ---------- */
+.newsletter {
+  margin: 3rem auto 0;
+  max-width: 720px;
+}
+
+.newsletter-inner {
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(160deg, rgba(67, 56, 202, 0.14), rgba(15, 23, 42, 0.6));
+  text-align: center;
+}
+
+.newsletter-inner > svg {
+  width: 30px;
+  height: 30px;
+  color: var(--accent);
+}
+
+.newsletter-inner h2 {
+  margin-top: 0.6rem;
+  font-size: 1.4rem;
+}
+
+.newsletter-inner > p {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.6rem;
+  margin: 1.2rem auto 0;
+  max-width: 440px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  min-width: 0;
+}
+
+.newsletter-note {
+  margin-top: 0.8rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ---------- Article: table of contents ---------- */
+.article-toc {
+  margin: 0 0 1.8rem;
+  padding: 1.1rem 1.3rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(148, 163, 184, 0.05);
+}
+
+.article-toc .toc-title {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.article-toc ul {
+  list-style: none;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.article-toc a {
+  color: var(--text);
+  font-size: 0.92rem;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.article-toc a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Article: share buttons ---------- */
+.article-share {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.article-share .share-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-right: 0.2rem;
+}
+
+.share-btn {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(148, 163, 184, 0.05);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.share-btn:hover {
+  color: var(--accent);
+  border-color: var(--line-strong);
+}
+
+.share-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.share-btn.copied {
+  color: var(--success);
+  border-color: var(--success);
+}
+
+/* ---------- Article: author bio ---------- */
+.author-box {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 2.5rem;
+  padding: 1.3rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.author-avatar img {
+  border-radius: 50%;
+  background: var(--surface-2);
+}
+
+.author-box strong {
+  font-family: var(--font-display);
+}
+
+.author-box p {
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Article: related posts ---------- */
+.related-posts {
+  margin-top: 2.5rem;
+}
+
+.related-posts h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1.1rem;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.related-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.2rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.25s var(--ease), border-color 0.25s ease;
+}
+
+.related-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+}
+
+.related-card strong {
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.related-card .cat-chip {
+  align-self: flex-start;
+}
+
+.related-card .card-link {
+  margin-top: auto;
 }
 
 /* ---------- Testimonials ---------- */
