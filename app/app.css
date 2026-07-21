@@ -24,7 +24,7 @@
   height: 24px;
   padding: 0 7px;
   border-radius: 999px;
-  background: rgba(56, 189, 248, 0.12);
+  background: rgba(6, 182, 212, 0.12);
   color: var(--accent);
   font-size: 0.8rem;
   font-weight: 700;
@@ -44,7 +44,7 @@
   font: inherit;
   resize: vertical;
 }
-.field textarea:focus { outline: none; border-color: var(--line-strong); box-shadow: 0 0 0 3px rgba(56,189,248,0.14); }
+.field textarea:focus { outline: none; border-color: var(--line-strong); box-shadow: 0 0 0 3px rgba(6, 182, 212,0.14); }
 
 .finding {
   border: 1px solid var(--line);
@@ -120,7 +120,7 @@
 .sev-High { background: #f59e0b; }
 .sev-Medium { background: #eab308; }
 .sev-Low { background: #22c55e; }
-.sev-Info { background: #38bdf8; }
+.sev-Info { background: #06B6D4; }
 
 .toast {
   position: fixed;
