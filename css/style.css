@@ -36,7 +36,7 @@ html {
 
 body {
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   color: var(--text);
   background:
     radial-gradient(circle at 85% -5%, rgba(67, 56, 202, 0.12), transparent 32rem),
@@ -418,8 +418,8 @@ button {
 
 .menu-toggle {
   display: none;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -2019,8 +2019,8 @@ select:-webkit-autofill {
 .lang-toggle {
   display: inline-grid;
   place-items: center;
-  min-width: 34px;
-  height: 34px;
+  min-width: 44px;
+  height: 44px;
   padding: 0 0.5rem;
   border-radius: 999px;
   border: 1px solid var(--line);
@@ -2168,8 +2168,8 @@ select:-webkit-autofill {
 .share-btn {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border-radius: 10px;
   border: 1px solid var(--line);
   background: rgba(148, 163, 184, 0.05);
@@ -2664,8 +2664,8 @@ details p {
 
 .social-links a {
   display: grid;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 10px;
