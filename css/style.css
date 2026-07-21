@@ -379,7 +379,8 @@ button {
 .btn-primary:hover,
 .btn-primary:focus-visible {
   background: var(--primary-strong);
-  box-shadow: 0 14px 34px rgba(67, 56, 202, 0.42);
+  box-shadow: 0 14px 34px rgba(67, 56, 202, 0.42), 0 0 0 1px rgba(6, 182, 212, 0.45),
+    0 0 22px rgba(6, 182, 212, 0.28);
 }
 
 .btn-secondary {
@@ -390,8 +391,22 @@ button {
 
 .btn-secondary:hover,
 .btn-secondary:focus-visible {
-  border-color: var(--line-strong);
-  background: rgba(6, 182, 212, 0.06);
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(6, 182, 212, 0.08);
+}
+
+/* Cyan accent button — for variety on secondary CTAs */
+.btn-accent {
+  color: var(--bg);
+  background: var(--accent);
+  box-shadow: 0 10px 26px rgba(6, 182, 212, 0.28);
+}
+
+.btn-accent:hover,
+.btn-accent:focus-visible {
+  background: #22d3ee;
+  box-shadow: 0 14px 34px rgba(6, 182, 212, 0.42);
 }
 
 .btn-sm {
