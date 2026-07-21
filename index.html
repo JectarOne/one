@@ -38,7 +38,7 @@
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
   </noscript>
-  <link rel="stylesheet" href="css/style.css?v=20260721" />
+  <link rel="stylesheet" href="css/style.css?v=20260722" />
 
   <script type="application/ld+json">
   {
@@ -823,6 +823,16 @@
     </div>
   </footer>
 
+  <!-- Contact success modal -->
+  <div class="modal-overlay" id="cf-modal" role="dialog" aria-modal="true" aria-labelledby="cf-modal-title" aria-describedby="cf-modal-desc" hidden>
+    <div class="modal-card">
+      <span class="modal-icon" aria-hidden="true"><i data-lucide="check"></i></span>
+      <h2 id="cf-modal-title">Thank you</h2>
+      <p id="cf-modal-desc">We have received your request and will respond within 24 hours.</p>
+      <button class="btn btn-primary" type="button" id="cf-modal-close">Close</button>
+    </div>
+  </div>
+
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
   <script src="js/main.js?v=20260721" defer></script>
   <script>
@@ -833,15 +843,39 @@
     var btn = document.getElementById("cf-submit");
     var label = btn.querySelector(".cf-submit-label");
 
+    var modal = document.getElementById("cf-modal");
+    var modalClose = document.getElementById("cf-modal-close");
+    var lastFocus = null;
+
     function showStatus(msg, ok) {
       statusEl.textContent = msg;
       statusEl.style.display = "block";
       statusEl.style.color = ok ? "var(--success)" : "var(--danger)";
     }
 
+    function onModalKey(e) { if (e.key === "Escape") closeModal(); }
+    function openModal() {
+      if (!modal) return;
+      lastFocus = document.activeElement;
+      modal.hidden = false;
+      if (window.lucide) window.lucide.createIcons();
+      if (modalClose) modalClose.focus();
+      document.addEventListener("keydown", onModalKey);
+    }
+    function closeModal() {
+      if (!modal) return;
+      modal.hidden = true;
+      document.removeEventListener("keydown", onModalKey);
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    if (modalClose) modalClose.addEventListener("click", closeModal);
+    if (modal) modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (form.querySelector("#cf-hp").value) return; // honeypot tripped, do nothing
+      // Native HTML5 validation (required fields + email format) despite novalidate.
+      if (!form.checkValidity()) { form.reportValidity(); return; }
       btn.disabled = true;
       label.textContent = "Sending…";
       statusEl.style.display = "none";
@@ -854,8 +888,12 @@
         .then(function (res) { return res.json().then(function (d) { return { ok: res.ok, d: d }; }); })
         .then(function (r) {
           var ok = r.d && r.d.ok;
-          showStatus((r.d && r.d.message) || (ok ? "Thanks — we'll be in touch shortly." : "Something went wrong. Please try again."), ok);
-          if (ok) form.reset();
+          if (ok) {
+            form.reset();
+            openModal();
+          } else {
+            showStatus((r.d && r.d.message) || "Something went wrong. Please try again.", false);
+          }
         })
         .catch(function () {
           showStatus("Could not send your request. Please email us at contact@jectar.one.", false);
