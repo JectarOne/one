@@ -2104,6 +2104,56 @@ select:-webkit-autofill {
   }
 }
 
+/* ---------- RTL (Arabic) support ---------- */
+html[dir="rtl"] body {
+  --font-body: "Tajawal", "Inter", system-ui, sans-serif;
+  --font-display: "Tajawal", "Space Grotesk", system-ui, sans-serif;
+  font-family: var(--font-body);
+  letter-spacing: 0;
+}
+
+html[dir="rtl"] .eyebrow,
+html[dir="rtl"] .section-kicker,
+html[dir="rtl"] .form-step-label {
+  letter-spacing: 0;
+}
+
+/* Directional arrows point "forward" — mirror them in RTL */
+html[dir="rtl"] svg.lucide-arrow-right,
+html[dir="rtl"] svg.lucide-arrow-left,
+html[dir="rtl"] svg.lucide-send {
+  transform: scaleX(-1);
+}
+
+/* Asymmetric accents flip sides */
+html[dir="rtl"] .callout {
+  border-left: 1px solid var(--line-strong);
+  border-right: 3px solid var(--accent);
+}
+
+html[dir="rtl"] .cs-quote {
+  padding: 1.2rem 1.4rem 1.2rem 1.2rem;
+  border-left: 0;
+  border-right: 3px solid var(--primary);
+}
+
+html[dir="rtl"] .prose ul,
+html[dir="rtl"] .prose ol {
+  padding-left: 0;
+  padding-right: 1.3rem;
+}
+
+html[dir="rtl"] .skip-link {
+  left: auto;
+  right: 1rem;
+}
+
+/* Honeypot: off-left extends RTL scroll area — park it off-right instead */
+html[dir="rtl"] #cf-hp {
+  left: auto !important;
+  right: -9999px;
+}
+
 /* ---------- Language switcher (EN / FR / AR-soon) ---------- */
 .lang-switch {
   display: inline-flex;
