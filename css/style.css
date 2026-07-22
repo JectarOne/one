@@ -2104,6 +2104,48 @@ select:-webkit-autofill {
   }
 }
 
+/* ---------- Language switcher (EN / FR / AR-soon) ---------- */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(148, 163, 184, 0.05);
+}
+
+.lang-switch a,
+.lang-switch .lang-soon {
+  display: inline-grid;
+  place-items: center;
+  min-width: 38px;
+  height: 40px;
+  padding: 0 0.55rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.lang-switch a:hover,
+.lang-switch a:focus-visible {
+  color: var(--text);
+}
+
+.lang-switch a.is-active {
+  color: var(--bg);
+  background: var(--accent);
+}
+
+.lang-switch .lang-soon {
+  font-size: 1rem;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* ---------- Language toggle placeholder (Arabic RTL — future) ---------- */
 .lang-toggle {
   display: inline-grid;
