@@ -2015,6 +2015,95 @@ select:-webkit-autofill {
   }
 }
 
+/* ---------- Hero secondary text link ---------- */
+.hero-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-text-link:hover,
+.hero-text-link:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.hero-text-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- Trust badges ---------- */
+.trust-badges {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.trust-badges li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(6, 182, 212, 0.05);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.trust-badges li svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+  flex: 0 0 auto;
+}
+
+/* ---------- Floating WhatsApp button ---------- */
+.whatsapp-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 900;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s ease;
+}
+
+.whatsapp-fab:hover,
+.whatsapp-fab:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+}
+
+.whatsapp-fab svg {
+  width: 30px;
+  height: 30px;
+  color: #fff;
+}
+
+@media (max-width: 880px) {
+  .whatsapp-fab {
+    right: 16px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
+  }
+}
+
 /* ---------- Language toggle placeholder (Arabic RTL — future) ---------- */
 .lang-toggle {
   display: inline-grid;
