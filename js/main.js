@@ -73,6 +73,20 @@
     });
   });
 
+  // ---- GA4 event tracking (no-op if gtag is absent) ----
+  const track = (name, params) => {
+    if (typeof window.gtag === "function") window.gtag("event", name, params || {});
+  };
+  const siteLang = (document.documentElement.lang || "en").slice(0, 2);
+  document.addEventListener("click", (event) => {
+    const target = event.target.closest ? event.target : event.target.parentElement;
+    if (!target || !target.closest) return;
+    const wa = target.closest(".whatsapp-fab");
+    if (wa) { track("whatsapp_click", { language: siteLang, page: location.pathname }); return; }
+    const ls = target.closest(".lang-switch a[hreflang]");
+    if (ls) { track("language_switch", { from: siteLang, to: ls.getAttribute("hreflang") }); }
+  });
+
   // Pre-fill the contact message when arriving from an industry card (?industry=…).
   const industryParam = new URLSearchParams(window.location.search).get("industry");
   if (industryParam) {

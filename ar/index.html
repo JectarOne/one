@@ -697,7 +697,7 @@
   </a>
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-  <script src="../js/main.js?v=20260721" defer></script>
+  <script src="../js/main.js?v=20260724" defer></script>
   <script>
   (function () {
     var form = document.getElementById("contact-form");
@@ -753,6 +753,7 @@
           if (ok) {
             form.reset();
             openModal();
+            if (typeof gtag === "function") gtag("event", "generate_lead", { method: "contact_form" });
           } else {
             showStatus((r.d && r.d.message) || "حدث خطأ ما. يرجى المحاولة مرة أخرى.", false);
           }
@@ -767,6 +768,6 @@
     });
   })();
   </script>
-  <script src="/js/scorecard.js?v=20260723d" defer></script>
+  <script src="/js/scorecard.js?v=20260724" defer></script>
 </body>
 </html>

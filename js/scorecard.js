@@ -81,6 +81,7 @@
     close: { en: "Close", fr: "Fermer", ar: "إغلاق" }
   };
   function tr(key) { var e = t[key]; return e[LANG] || e.en; }
+  function track(name, params) { if (typeof window.gtag === "function") window.gtag("event", name, params || {}); }
 
   var questions = [
     { id: "backups", q: { en: "How do you back up critical business data?", fr: "Comment sauvegardez-vous vos données critiques ?", ar: "كيف تقوم بنسخ بياناتك الحيوية احتياطياً؟" },
@@ -245,6 +246,7 @@
     fd.append("email", form.email.value);
     fd.append("service", "Risk Scorecard (" + riskEN + ")");
     fd.append("message", lines.join("\n"));
+    track("generate_lead", { method: "risk_scorecard", score: s, risk_level: riskEN, language: LANG });
     return fetch(WEBHOOK, {
       method: "POST",
       body: fd,
@@ -254,6 +256,7 @@
 
   function renderResult() {
     var lv = tier(), s = total();
+    track("scorecard_complete", { score: s, risk_level: t.riskName[lv].en, language: LANG });
     var wrap = el("div", "sc-body sc-result");
     wrap.appendChild(el("span", "sc-badge sc-badge-" + lv, esc(t.riskName[lv][LANG] || t.riskName[lv].en)));
     wrap.appendChild(el("p", "sc-score", esc(t.scoreLabel[LANG](s))));
@@ -283,6 +286,7 @@
     answers = new Array(questions.length).fill(null);
     overlay.hidden = false;
     document.addEventListener("keydown", onKey);
+    track("scorecard_start", { language: LANG });
     render();
   }
   function close() {
