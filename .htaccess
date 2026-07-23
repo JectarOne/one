@@ -119,7 +119,10 @@ FileETag None
     Header always set X-Frame-Options "SAMEORIGIN"
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     Header always set Permissions-Policy "geolocation=(), camera=(), microphone=(), browsing-topics=()"
-    Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' data: https://images.unsplash.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://unpkg.com; connect-src 'self'; form-action 'self'; upgrade-insecure-requests"
+    # NOTE: script-src/connect-src/img-src must include Google Tag Manager +
+    # Analytics or CSP silently blocks GA4 (gtag.js + the /collect beacons).
+    # 'unsafe-inline' is required because GA bootstrap + a few handlers are inline.
+    Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' data: https://images.unsplash.com https://*.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.googletagmanager.com; form-action 'self'; upgrade-insecure-requests"
 
     # Cache-Control for static assets
     <FilesMatch "\.(js|css)$">
