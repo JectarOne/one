@@ -184,13 +184,45 @@
     });
   }
 
-  // ---- Newsletter placeholder (no provider connected yet) ----
+  // ---- Newsletter signup ----
+  // Captures to the mailbox via the existing secured handler so sign-ups work
+  // today. To use a dedicated ESP later, point NEWSLETTER_ENDPOINT at a
+  // Mailchimp/ConvertKit form action (and adjust the field names).
+  const NEWSLETTER_ENDPOINT = "/send-contact.php";
+  const nlMsg = {
+    en: { sending: "Subscribing…", ok: "Thanks! You're on the list.", err: "Couldn't subscribe. Please email contact@jectar.one." },
+    fr: { sending: "Inscription…", ok: "Merci ! Vous êtes inscrit(e).", err: "Inscription impossible. Écrivez à contact@jectar.one." },
+    ar: { sending: "جارٍ الاشتراك…", ok: "شكراً! تم تسجيلك في القائمة.", err: "تعذّر الاشتراك. راسلنا على contact@jectar.one." }
+  };
   document.addEventListener("submit", (event) => {
     const form = event.target.closest("form[data-newsletter]");
     if (!form) return;
     event.preventDefault();
     const status = form.parentElement.querySelector(".newsletter-note");
-    if (status) status.textContent = "Thanks! Sign-ups aren't live yet — connect Mailchimp/ConvertKit to enable them.";
+    const email = form.querySelector('input[type="email"]');
+    if (email && !email.checkValidity()) { email.reportValidity(); return; }
+    const lang = (document.documentElement.lang || "en").slice(0, 2);
+    const m = nlMsg[lang] || nlMsg.en;
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn) btn.disabled = true;
+    if (status) status.textContent = m.sending;
+    const fd = new FormData();
+    fd.append("name", "Newsletter subscriber");
+    fd.append("email", email ? email.value : "");
+    fd.append("service", "Newsletter Signup");
+    fd.append("message", "Newsletter subscription request (" + lang + ") from " + location.pathname);
+    fetch(NEWSLETTER_ENDPOINT, {
+      method: "POST",
+      body: fd,
+      headers: { Accept: "application/json", "X-Requested-With": "fetch" }
+    })
+      .then((res) => res.json().then((d) => ({ ok: res.ok && d && d.ok })))
+      .then((r) => {
+        if (status) status.textContent = r.ok ? m.ok : m.err;
+        if (r.ok) { form.reset(); if (typeof window.gtag === "function") window.gtag("event", "newsletter_signup", { language: lang }); }
+      })
+      .catch(() => { if (status) status.textContent = m.err; })
+      .then(() => { if (btn) btn.disabled = false; });
   });
 
   // ---- Blog article enhancements: TOC, share, author bio, related posts, newsletter ----
@@ -287,7 +319,7 @@
       '<input type="email" name="email" required placeholder="you@company.com" autocomplete="email" aria-label="Email address" />' +
       '<button class="btn btn-primary" type="submit">Subscribe <i data-lucide="arrow-right" aria-hidden="true"></i></button>' +
       "</form>" +
-      '<p class="newsletter-note" id="nl-status">No newsletter provider is connected yet — this is a placeholder form.</p>' +
+      '<p class="newsletter-note" id="nl-status">Occasional, no-spam security tips. Unsubscribe anytime.</p>' +
       "</div></section>";
 
     const extras = document.createElement("div");
