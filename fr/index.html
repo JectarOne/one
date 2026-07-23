@@ -44,7 +44,7 @@
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
   </noscript>
-  <link rel="stylesheet" href="../css/style.css?v=20260723c" />
+  <link rel="stylesheet" href="../css/style.css?v=20260723d" />
 
   <script type="application/ld+json">
   {
@@ -131,10 +131,10 @@
               Demander un audit de sécurité
               <i data-lucide="arrow-right" aria-hidden="true"></i>
             </a>
-            <a class="hero-text-link" href="#contact">
-              ou réservez une consultation gratuite
-              <i data-lucide="arrow-right" aria-hidden="true"></i>
-            </a>
+            <button class="btn btn-secondary" type="button" data-scorecard>
+              Évaluer votre risque (2 min)
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+            </button>
           </div>
           <ul class="hero-points" role="list">
             <li><i data-lucide="check" aria-hidden="true"></i> Missions à distance et sur site</li>
@@ -766,5 +766,6 @@
     });
   })();
   </script>
+  <script src="/js/scorecard.js?v=20260723d" defer></script>
 </body>
 </html>

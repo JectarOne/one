@@ -1941,6 +1941,220 @@ select:-webkit-autofill {
   border: 0;
 }
 
+/* ---------- Risk Scorecard widget ---------- */
+.sc-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 84px;
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 48px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--primary);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(67, 56, 202, 0.4);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s ease;
+}
+
+.sc-fab:hover,
+.sc-fab:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(6, 182, 212, 0.4);
+}
+
+.sc-fab svg { width: 18px; height: 18px; }
+
+html[dir="rtl"] .sc-fab { right: auto; left: 20px; }
+
+@media (max-width: 880px) {
+  .sc-fab { right: 16px; bottom: 76px; }
+  html[dir="rtl"] .sc-fab { right: auto; left: 16px; }
+  .sc-fab span { display: none; }
+  .sc-fab { padding: 0; width: 48px; justify-content: center; }
+}
+
+.sc-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(6, 10, 20, 0.72);
+  backdrop-filter: blur(4px);
+  animation: modalFade 0.25s var(--ease);
+}
+
+.sc-overlay[hidden] { display: none; }
+
+.sc-modal {
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1.6rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  animation: modalRise 0.25s var(--ease);
+}
+
+.sc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.sc-kicker {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.sc-close {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.3rem;
+}
+
+.sc-close:hover { color: var(--text); }
+
+.sc-progress {
+  height: 6px;
+  margin: 0.9rem 0 1.2rem;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.16);
+  overflow: hidden;
+}
+
+.sc-progress span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 0.3s var(--ease);
+}
+
+.sc-steplabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.sc-question {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.sc-lead-intro { margin-top: 0.5rem; color: var(--muted); }
+
+.sc-options {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+.sc-option {
+  text-align: start;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(148, 163, 184, 0.04);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+}
+
+.sc-option:hover,
+.sc-option:focus-visible {
+  border-color: var(--line-strong);
+  background: rgba(6, 182, 212, 0.06);
+  transform: translateY(-2px);
+}
+
+.sc-option.is-selected {
+  border-color: var(--accent);
+  background: rgba(6, 182, 212, 0.12);
+}
+
+.sc-nav {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+
+.sc-nav .btn { flex: 1; justify-content: center; }
+
+.sc-form { margin-top: 1.2rem; display: grid; gap: 0.8rem; }
+
+.sc-field { display: grid; gap: 0.35rem; }
+
+.sc-field span { font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+
+.sc-submit { width: 100%; justify-content: center; margin-top: 0.4rem; }
+
+.sc-nda {
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Result */
+.sc-result { text-align: center; }
+
+.sc-badge {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.sc-badge-high { color: #fff; background: var(--danger); }
+.sc-badge-medium { color: #0A0E1A; background: var(--warning); }
+.sc-badge-low { color: #0A0E1A; background: var(--success); }
+
+.sc-score {
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+}
+
+.sc-meter {
+  height: 10px;
+  margin: 0.8rem 0;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.16);
+  overflow: hidden;
+}
+
+.sc-meter-fill { display: block; height: 100%; border-radius: 999px; }
+
+.sc-result-msg { color: rgba(248, 250, 252, 0.86); }
+
+.sc-nav-result { margin-top: 1.6rem; }
+
 /* ---------- Contact success modal ---------- */
 .modal-overlay {
   position: fixed;
